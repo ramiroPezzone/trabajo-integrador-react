@@ -1,0 +1,39 @@
+nav {
+    height: 40px;
+    background-color: #212529;
+    padding: 8px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor-flex-nav {
+    margin: 0 auto;
+    width: 94%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu-hamburguesa {
+    background: url('../assets/img/menu-hamb.png') no-repeat center;
+    background-size: 25px;
+    width: 54px;
+    height: 38px;
+    border: 1px solid #383B3F;
+    border-radius: 5px;
+
+}
+
+@media (min-width: 992px) {
+    .menu-hamburguesa {
+        display: none;
+    }
+}
