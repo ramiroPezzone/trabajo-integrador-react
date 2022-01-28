@@ -2,12 +2,11 @@ nav {
     height: 40px;
     background-color: #212529;
     padding: 8px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .contenedor-flex-nav {
     margin: 0 auto;
-    width: 94%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -22,6 +21,16 @@ nav a {
     font-size: 20px;
 }
 
+.ul-menu li a {
+    color: rgba(255, 255, 255, .55);
+    transition: .3s;
+}
+
+.ul-menu li a:hover {
+    color: rgba(255, 255, 255, .75);
+    transition: .3s;
+}
+
 .menu-hamburguesa {
     background: url('../assets/img/menu-hamb.png') no-repeat center;
     background-size: 25px;
@@ -29,11 +38,83 @@ nav a {
     height: 38px;
     border: 1px solid #383B3F;
     border-radius: 5px;
+}
+.menu-hamb-selected {
+    background: url('../assets/img/menu-hamb.png') no-repeat center;
+    background-size: 25px;
+    width: 54px;
+    height: 38px;
+    border-radius: 5px;
+    border: 10px solid rgba(255, 255, 255, .75);
+}
 
+.menu-lg {
+    display: none;
 }
 
 @media (min-width: 992px) {
     .menu-hamburguesa {
         display: none;
     }
+
+    .menu-lg {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ul-menu li {
+        list-style: none;
+    }
+
+    .ul-menu a {
+        font-size: 16px;
+    }
+
+    .cont-form-menu form {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .input-search {
+        width: 227px;
+        height: 38px;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 12px;
+        margin-right: .5rem;
+        transition: .1s;
+    }
+
+    .input-search:focus {
+        outline: 4px solid #1C375F;
+        transition: .1s;
+    }
+
+    .input-search::placeholder {
+        font-size: 16px;
+    }
+
+    .btn-search {
+        width: 73px;
+        height: 38px;
+        border-radius: 5px;
+        background-color: #212529;
+        color: #0DCAF0;
+        border: 1px solid #0DCAF0;
+        font-size: 16px;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .btn-search:hover {
+        background-color: #0DCAF0;
+        color: #212529;
+        transition: .2s;
+
+
+    }
+
+
 }
