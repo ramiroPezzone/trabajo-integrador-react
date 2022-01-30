@@ -1,8 +1,7 @@
 import { Fragment, Component } from "react";
 import { Movie } from './Movie';
-import { nanoid } from "nanoid";
+import { Loading } from "./Loading";
 import { Container } from "./Container";
-
 
 class MovieList extends Component {
     constructor() {
@@ -26,9 +25,10 @@ class MovieList extends Component {
         const { movies, isFetch } = this.state;
 
         if (isFetch) {
-            return 'Loading...'
+            return (
+                <Loading />
+            )
         }
-
         return (
             <Fragment>
                 <Container>
@@ -38,6 +38,7 @@ class MovieList extends Component {
                             poster_path={movie.poster_path}
                             title={movie.title}
                             overview={movie.overview}
+                            link={movie.id}
                         />
                     ))}
                 </Container>

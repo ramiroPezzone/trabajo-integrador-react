@@ -1,7 +1,9 @@
 .movies-container {
+    margin-top: 33px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    gap: 13px
 }

@@ -1,0 +1,12 @@
+.container-btn-details {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.btn-details {
+    background-color: #0b5ed7;
+    padding: .55rem .85rem;
+    border-radius: .25rem;
+    font-size: 1rem;
+    color: #fff;
+}
