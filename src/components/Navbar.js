@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import { Link, Route } from "react-router-dom";
 import './Navbar.css'
 
 class Navbar extends Component {
@@ -18,13 +19,20 @@ class Navbar extends Component {
     })
   }
 
+  search() {
+
+  }
+
   render() {
     return (
       <Fragment>
         <nav>
           <div className='contenedor-flex-nav'>
-            <div>
-              <a href="/">MovFlix</a>
+            <div className='btn-home'>
+              <Link
+                to='/'>
+                MovFlix
+              </Link>
             </div>
 
             <div
@@ -38,17 +46,18 @@ class Navbar extends Component {
 
             <div className='menu-lg'>
               <div className='links-menu-lg'>
-                <ul className='ul-menu' >
+                <div className='ul-menu' >
                   {
                     this.enlaces.enlaces.map(opt => (
-                      <li key={opt.id}>
-                        <a href={opt.href}>
-                          {opt.text}
-                        </a>
-                      </li>
+                      <Link
+                        to={opt.href}
+                        className='link-ul-menu'
+                      >
+                        {opt.text}
+                      </Link>
                     ))
                   }
-                </ul>
+                </div>
               </div>
               <div className='cont-form-menu'>
                 <form>
@@ -64,10 +73,10 @@ class Navbar extends Component {
           </div>
         </nav>
         <div className={
-                this.state.cambiarClase ?
-                'container-menu-lg-oculto' :
-                'container-menu-lg-deployed'
-              }>
+          this.state.cambiarClase ?
+            'container-menu-lg-oculto' :
+            'container-menu-lg-deployed'
+        }>
           <div className='menu-lg-oculto'>
             <div className='links-menu-lg'>
               <ul className='ul-menu' >
@@ -88,8 +97,15 @@ class Navbar extends Component {
                   type="search"
                   placeholder='Search'
                   className='input-search'
+                  // value={buscar}
                 />
-                <button type='submit' className='btn-search'>Search</button>
+                <button
+                  type='button'
+                  className='btn-search'
+                  // onClick={() => this.search()}
+                >
+                  Search
+                </button>
               </form>
             </div>
           </div>

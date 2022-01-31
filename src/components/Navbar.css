@@ -15,18 +15,20 @@ nav {
     align-items: center;
 }
 
-nav a {
+.btn-home a {
+    background-color: transparent;
     color: #fff;
     text-decoration: none;
     font-size: 20px;
 }
 
-.ul-menu li a {
+.link-ul-menu {
+    background: transparent;
     color: rgba(255, 255, 255, .55);
     transition: .3s;
 }
 
-.ul-menu li a:hover {
+.link-ul-menu:hover {
     color: rgba(255, 255, 255, .75);
     transition: .3s;
 }
@@ -53,11 +55,13 @@ nav a {
     display: none;
     transition: 1s;
 }
+
 .container-menu-lg-deployed {
     background-color: #212529;
     padding-bottom: 10px;
     transition: 1s;
 }
+
 .menu-lg-oculto {
     display: flex;
     flex-direction: column;
@@ -129,17 +133,9 @@ nav a {
 
     .menu-lg {
         display: flex;
-        width: 90%;
+        width: 88%;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .ul-menu li {
-        list-style: none;
-    }
-
-    .ul-menu a {
-        font-size: 16px;
     }
 
     .cont-form-menu form {
@@ -182,8 +178,6 @@ nav a {
         background-color: #0DCAF0;
         color: #212529;
         transition: .2s;
-
-
     }
 
 

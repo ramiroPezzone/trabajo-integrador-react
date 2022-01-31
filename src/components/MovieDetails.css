@@ -1,0 +1,106 @@
+.container-movie-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 94vw;
+    color: rgb(33, 37, 41);
+    border-radius: 5px;
+    max-width: 516px;
+}
+
+
+.poster-movie-details {
+    width: 100%;
+    margin-top: 24px;
+    border: 1px solid #e4e5e6;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.poster-movie-details img {
+    margin-bottom: 0;
+    border-radius: 0;
+    width: 100%;
+}
+
+.card-datos-movie-details {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.movie-title {
+    font-size: calc(1.325rem + .9vw);
+}
+
+.container-sinapsis {
+    margin-bottom: 10px;
+}
+
+h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.rating {
+    margin: 30px 0;
+}
+
+.genre-list {
+    margin: 10px 32px;
+}
+
+@media (min-width: 767px) {
+    .container-movie-details {
+        flex-direction: row;
+        align-items: flex-start;
+        max-width: 720px;
+        margin-top: 23px;
+        gap: 30px;
+    }
+
+    .poster-movie-details {
+        width: 135%;
+    }
+
+    .poster-movie-details {
+        margin-top: 0px;
+        padding: 4px;
+        border-radius: 4px;
+    }
+}
+
+@media (min-width: 991px) {
+    .container-movie-details {
+        max-width: 945px;
+    }
+
+    .poster-movie-details {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1199px) {
+    .container-movie-details {
+        max-width: 1130px;
+    }
+
+    .poster-movie-details {
+        width: 85%;
+    }
+
+}
+
+@media (min-width: 1399px) {
+ 
+    .container-movie-details {
+        max-width: 1290px;
+    }
+
+    .poster-movie-details {
+        width: 76%;
+    }
+
+}

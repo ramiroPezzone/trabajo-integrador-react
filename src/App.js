@@ -8,16 +8,16 @@ import MovieDetails from './components/MovieDetails';
 function App() {
   return (
     <Fragment>
-      <Navbar
-        links={[
-          {
-            id: Math.random.toString(32).slice(2),
-            href: '/',
-            text: 'Home'
-          }
-        ]}
-      />
       <BrowserRouter>
+        <Navbar
+          links={[
+            {
+              id: Math.random.toString(32).slice(2),
+              href: '/',
+              text: 'Home'
+            }
+          ]}
+        />
         <Route exact path='/' component={MovieList} />
         <Route path='/details/:id' component={MovieDetails} />
       </BrowserRouter>

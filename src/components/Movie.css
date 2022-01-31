@@ -1,5 +1,6 @@
 .container-movie {
-    width: 94vw;
+    width: 90%;
+    margin: 0 auto;
     color: rgb(33, 37, 41);
     border: 1px solid #dfdfdf;
     border-radius: 5px;
@@ -7,18 +8,25 @@
 
 img {
     width: 100%;
-    border-radius: 5px 5px 0 0 ;
+    border-radius: 5px 5px 0 0;
 }
+
 .card-datos-movie {
     padding: .5rem 1rem;
     box-sizing: border-box;
     line-height: 1.5;
 }
 
-.movie-title {
+.card-datos-movie h5 {
     font-size: 20px;
     font-weight: 500;
+}
+
+.movie-title {
     padding-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .movie-sinapsis {
@@ -30,4 +38,33 @@ img {
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 22px;
+}
+
+@media (min-width: 575px) {
+    .card-movie {
+        width: 245px;
+    }
+
+    .movie-sinapsis {
+        -webkit-line-clamp: 4;
+    }
+
+}
+
+@media (min-width: 767px) {
+    .card-movie {
+        width: 334px;
+    }
+}
+
+@media (min-width: 991px) {
+    .card-movie {
+        width: 214px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .card-movie {
+        width: 300px;
+    }
 }

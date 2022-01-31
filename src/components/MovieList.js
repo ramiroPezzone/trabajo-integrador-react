@@ -2,6 +2,7 @@ import { Fragment, Component } from "react";
 import { Movie } from './Movie';
 import { Loading } from "./Loading";
 import { Container } from "./Container";
+import './MovieList.css'
 
 class MovieList extends Component {
     constructor() {
@@ -13,12 +14,13 @@ class MovieList extends Component {
 
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
         let endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
-        fetch(endPoint)
+        await fetch(endPoint)
             .then(res => res.json())
             .then(movieList => this.setState({ movies: movieList.results, isFetch: false }))
+            .catch(error => { console.log(error) })
     }
 
     render() {
@@ -33,13 +35,15 @@ class MovieList extends Component {
             <Fragment>
                 <Container>
                     {movies.map(movie => (
-                        <Movie
-                            key={movie.id}
-                            poster_path={movie.poster_path}
-                            title={movie.title}
-                            overview={movie.overview}
-                            link={movie.id}
-                        />
+                        <div className="card-movie">
+                            <Movie
+                                key={movie.id}
+                                poster_path={movie.poster_path}
+                                title={movie.title}
+                                overview={movie.overview}
+                                link={movie.id}
+                            />
+                        </div>
                     ))}
                 </Container>
             </Fragment >

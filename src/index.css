@@ -4,6 +4,7 @@
   scroll-behavior: smooth;
 }
 body {
+  padding-bottom: 148px;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
