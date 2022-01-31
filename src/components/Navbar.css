@@ -144,22 +144,32 @@ nav {
     }
 
     .input-search {
-        width: 227px;
+        background-color: rgb(167, 167, 167);
+        width: 50px;
         height: 38px;
         border: none;
         border-radius: 5px;
         padding: 6px 12px;
         margin-right: .5rem;
-        transition: .1s;
+        transition: .5s;
     }
 
     .input-search:focus {
+        background-color: #fff;
+        width: 227px;
         outline: 4px solid #1C375F;
-        transition: .1s;
+        transition: .5s;
+    }
+
+    .input-search:focus::placeholder {
+        text-align: left;
+        transition: .5s;
     }
 
     .input-search::placeholder {
         font-size: 16px;
+        text-align: center;
+        transition: .5s;
     }
 
     .btn-search {

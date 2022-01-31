@@ -63,7 +63,7 @@ class Navbar extends Component {
                 <form>
                   <input
                     type="search"
-                    placeholder='Search'
+                    placeholder='🔎'
                     className='input-search'
                   />
                   <button type='submit' className='btn-search'>Search</button>
