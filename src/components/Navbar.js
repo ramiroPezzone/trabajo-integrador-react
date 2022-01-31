@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './Navbar.css'
 
 class Navbar extends Component {
