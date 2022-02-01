@@ -26,7 +26,14 @@ class Navbar extends Component {
   render() {
     return (
       <Fragment>
-        <nav>
+        <nav
+          className={
+            this.state.cambiarClase ?
+              'nav' :
+              'nav-deployed'
+          }
+          onClick={() => this.MenuHambClicked()}
+        >
           <div className='contenedor-flex-nav'>
             <div className='btn-home'>
               <Link
@@ -71,45 +78,49 @@ class Navbar extends Component {
               </div>
             </div>
           </div>
-        </nav>
-        <div className={
-          this.state.cambiarClase ?
-            'container-menu-lg-oculto' :
-            'container-menu-lg-deployed'
-        }>
-          <div className='menu-lg-oculto'>
-            <div className='links-menu-lg'>
-              <ul className='ul-menu' >
-                {
-                  this.enlaces.enlaces.map(opt => (
-                    <li key={opt.id}>
-                      <a href={opt.href}>
-                        {opt.text}
-                      </a>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-            <div className='cont-form-menu'>
-              <form>
-                <input
-                  type="search"
-                  placeholder='Search'
-                  className='input-search'
+
+          {/* menú desplegable */}
+
+          <div className={
+            this.state.cambiarClase ?
+              'container-menu-lg-oculto' :
+              'container-menu-lg-deployed'
+          }
+          >
+            <div className='menu-lg-oculto'>
+              <div className='links-menu-lg'>
+                <ul className='ul-menu' >
+                  {
+                    this.enlaces.enlaces.map(opt => (
+                      <li key={opt.id}>
+                        <a href={opt.href}>
+                          {opt.text}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div className='cont-form-menu'>
+                <form>
+                  <input
+                    type="search"
+                    placeholder='Search'
+                    className='input-search'
                   // value={buscar}
-                />
-                <button
-                  type='button'
-                  className='btn-search'
+                  />
+                  <button
+                    type='button'
+                    className='btn-search'
                   // onClick={() => this.search()}
-                >
-                  Search
-                </button>
-              </form>
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        </nav>
       </Fragment>
     );
   }

@@ -1,7 +1,15 @@
-nav {
+.nav {
     height: 40px;
     background-color: #212529;
     padding: 8px 0;
+    transition: 1s;
+}
+.nav-deployed {
+    height: 40px;
+    background-color: #212529;
+    padding: 8px 0;
+    margin-bottom: 100px;
+    transition: 1s;
 }
 
 .contenedor-flex-nav {
@@ -38,8 +46,10 @@ nav {
     background-size: 25px;
     width: 54px;
     height: 38px;
-    border: 1px solid #383B3F;
+    border: 1px solid rgba(255, 255, 255, .65);
     border-radius: 5px;
+    outline: 0px solid rgba(255, 255, 255, .65);
+    transition: 1s;
 }
 
 .menu-hamb-selected {
@@ -48,18 +58,28 @@ nav {
     width: 54px;
     height: 38px;
     border-radius: 5px;
-    border: 5px solid rgba(255, 255, 255, .65);
+    border: 1px solid rgba(255, 255, 255, .65);
+    outline: 5px solid rgba(255, 255, 255, .65);
+    transition: 1s;
 }
 
 .container-menu-lg-oculto {
-    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #212529;
+    margin-top: -90px;
+    padding-bottom: 10px;
+    z-index: -1000;
     transition: 1s;
 }
 
 .container-menu-lg-deployed {
+    position: relative;
+    padding-top: 10px;
     background-color: #212529;
     padding-bottom: 10px;
     transition: 1s;
+    z-index: -1000;
 }
 
 .menu-lg-oculto {
