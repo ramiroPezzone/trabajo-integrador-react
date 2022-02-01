@@ -98,6 +98,7 @@
 .ul-menu a {
     font-size: 16px;
     text-decoration: none;
+    background-color: transparent;
 }
 
 .cont-form-menu form {
@@ -113,11 +114,14 @@
     padding: 6px 12px;
     margin-right: .5rem;
     transition: .1s;
+    background-color: rgb(199, 199, 199);
+    transition: .5s;
 }
 
 .input-search:focus {
     outline: 4px solid #1C375F;
-    transition: .1s;
+    background-color: #fff;
+    transition: .5s;
 }
 
 .input-search::placeholder {

@@ -56,6 +56,7 @@ class Navbar extends Component {
                   {
                     this.enlaces.enlaces.map(opt => (
                       <Link
+                        key={opt.id}
                         to={opt.href}
                         className='link-ul-menu'
                       >
@@ -105,7 +106,7 @@ class Navbar extends Component {
                   <input
                     type="search"
                     placeholder='Search'
-                    className='input-search' 
+                    className='input-search'
                   // value={buscar}
                   />
                   <button
