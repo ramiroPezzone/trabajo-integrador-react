@@ -32,7 +32,6 @@ class Navbar extends Component {
               'nav' :
               'nav-deployed'
           }
-          onClick={() => this.MenuHambClicked()}
         >
           <div className='contenedor-flex-nav'>
             <div className='btn-home'>
@@ -106,7 +105,7 @@ class Navbar extends Component {
                   <input
                     type="search"
                     placeholder='Search'
-                    className='input-search'
+                    className='input-search' 
                   // value={buscar}
                   />
                   <button
