@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react";
 import { BackButton } from "./BackButton";
 import { Loading } from "./Loading";
+import { RangeStar } from "./RangeStar";
 import './MovieDetails.css'
 
 class MovieDetails extends Component {
@@ -32,6 +33,9 @@ class MovieDetails extends Component {
                 <Loading />
             )
         }
+
+        const valueRange = movie.vote_average * 10
+
         return (
             <Fragment>
                 <div className='container-movie-details'>
@@ -60,7 +64,12 @@ class MovieDetails extends Component {
                             <h5>Reseña:</h5>
                             <p className='movie-sinapsis-details'>{movie.overview}</p>
                         </div>
-                        <h5 className="rating">Rating: {movie.vote_average}</h5>
+                        <h5 className="rating">Rating: </h5>
+                        <RangeStar
+                            range=
+                            {valueRange}
+                        />
+                        <h5 className="value-rating">{movie.vote_average}</h5>
                         <BackButton />
                     </div>
                 </div>

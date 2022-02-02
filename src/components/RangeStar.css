@@ -1,0 +1,21 @@
+.container-gral-range {
+    width: min-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start ;
+    align-content: flex-start;
+}
+.container-range {
+    margin: 0 auto;
+    width: 10em;
+    height: 2em;
+    background: url('../assets/img/fondo-range.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.range {
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+}
