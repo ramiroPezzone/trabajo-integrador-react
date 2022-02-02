@@ -1,7 +1,7 @@
 import { Fragment, Component } from "react";
-import { Movie } from './Movie';
-import { Loading } from "./Loading";
-import { Container } from "./Container";
+import { Movie } from '../components/Movie';
+import { Loading } from "../components/Loading";
+import { Container } from "../components/Container";
 import './MovieList.css'
 
 class MovieList extends Component {
@@ -11,7 +11,6 @@ class MovieList extends Component {
             movies: [],
             isFetch: true
         }
-
     }
 
     async componentDidMount() {
@@ -31,6 +30,7 @@ class MovieList extends Component {
                 <Loading />
             )
         }
+
         return (
             <Fragment>
                 <Container>

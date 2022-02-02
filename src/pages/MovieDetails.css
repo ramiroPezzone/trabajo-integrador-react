@@ -52,6 +52,9 @@ h5 {
 .value-rating {
     margin-bottom: 35px;
 }
+.value-max {
+    font-size: .7em;
+}
 
 .genre-list {
     margin: 10px 32px;

@@ -1,7 +1,7 @@
 import { Component, Fragment } from "react";
-import { BackButton } from "./BackButton";
-import { Loading } from "./Loading";
-import { RangeStar } from "./RangeStar";
+import { BackButton } from "../components/BackButton";
+import { Loading } from "../components/Loading";
+import { RangeStar } from "../components/RangeStar";
 import './MovieDetails.css'
 
 class MovieDetails extends Component {
@@ -69,7 +69,7 @@ class MovieDetails extends Component {
                             range=
                             {valueRange}
                         />
-                        <h5 className="value-rating">{movie.vote_average}</h5>
+                        <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10</span></h5>
                         <BackButton />
                     </div>
                 </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import './RangeStar.css'
 
 export const RangeStar = (props) => {
-    console.log(props);
     return (
         <div className='container-gral-range'>
             <div className='container-range'>
