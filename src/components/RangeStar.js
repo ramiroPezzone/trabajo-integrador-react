@@ -7,7 +7,6 @@ export const RangeStar = (props) => {
             <div className='container-range'>
                 <div className='range'
                     style={{
-                        background: 'orange',
                         width: `${props.range}%`
                     }}></div>
             </div>
