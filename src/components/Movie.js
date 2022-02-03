@@ -3,6 +3,7 @@ import { ButtonDetails } from './ButtonDetails';
 import './Movie.css'
 
 export const Movie = (props) => {
+    
     return (
         <div className='container-movie'>
             <div className='container-poster-movie'>

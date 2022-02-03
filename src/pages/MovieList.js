@@ -9,6 +9,7 @@ class MovieList extends Component {
         super();
         this.state = {
             movies: [],
+            credits: [],
             isFetch: true
         }
     }
@@ -30,14 +31,15 @@ class MovieList extends Component {
                 <Loading />
             )
         }
-
         return (
             <Fragment>
                 <Container>
                     {movies.map(movie => (
-                        <div className="card-movie">
+                        <div
+                            className="card-movie"
+                            key={movie.id}
+                        >
                             <Movie
-                                key={movie.id}
                                 poster_path={movie.poster_path}
                                 title={movie.title}
                                 overview={movie.overview}

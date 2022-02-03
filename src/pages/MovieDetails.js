@@ -69,7 +69,7 @@ class MovieDetails extends Component {
                             range=
                             {valueRange}
                         />
-                        <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10</span></h5>
+                        <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10 (votos: {movie.vote_count})</span></h5>
                         <BackButton />
                     </div>
                 </div>
