@@ -1,10 +1,9 @@
 import { Fragment } from 'react'
 import Footer from './components/Footer';
 import MovieList from './pages/MovieList';
-import { Navbar } from './components/Navbar';
+import Navbar from './components/Navbar';
 import { BrowserRouter, Route } from "react-router-dom";
 import MovieDetails from './pages/MovieDetails';
-// import { Navbar2 } from './components/Navbar2';
 // import { Fav } from './components/Fav';
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
     <Fragment>
       {/* <Fav /> */}
       <BrowserRouter>
-        {/* <Navbar2 /> */}
         <Navbar
           links={[
             {
