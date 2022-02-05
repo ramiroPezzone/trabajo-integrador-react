@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import './Navbar.css'
 
-function Navbar(props) {
+export const Navbar = (props) => {
 
   const [cambiarClase, setCambiarClase] = useState(true);
 
@@ -83,5 +83,3 @@ function Navbar(props) {
     </Fragment >
   );
 };
-
-export default Navbar

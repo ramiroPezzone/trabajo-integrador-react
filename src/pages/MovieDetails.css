@@ -8,7 +8,7 @@
     width: 94vw;
     color: rgb(33, 37, 41);
     border-radius: 5px;
-    max-width: 516px;
+    /* max-width: 516px; */
 }
 
 
@@ -49,9 +49,11 @@ h5 {
     margin-top: 30px;
     margin-bottom: 5px;
 }
+
 .value-rating {
     margin-bottom: 35px;
 }
+
 .value-max {
     font-size: .7em;
 }
@@ -60,20 +62,41 @@ h5 {
     margin: 10px 32px;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 550px) {
+
     .container-movie-details {
         flex-direction: row;
         align-items: flex-start;
-        max-width: 720px;
+        /* max-width: 20px; */
         margin-top: 23px;
-        gap: 30px;
+        gap: 20px;
     }
 
     .poster-movie-details {
         width: 135%;
+        margin-top: 0px;
+        padding: 4px;
+        border-radius: 4px;
+    }
+    .card-datos-movie-details {
+        width: 50%;
+    }
+}
+
+@media (min-width: 767px) {
+    .container-movie-details {
+        flex-direction: row;
+        align-items: flex-start;
+        /* max-width: 720px; */
+        margin-top: 23px;
+        gap: 20px;
+    }
+    .card-datos-movie-details {
+        width: 60%;
     }
 
     .poster-movie-details {
+        width: 300px;
         margin-top: 0px;
         padding: 4px;
         border-radius: 4px;
@@ -83,32 +106,6 @@ h5 {
 @media (min-width: 991px) {
     .container-movie-details {
         max-width: 945px;
-    }
-
-    .poster-movie-details {
-        width: 100%;
-    }
-}
-
-@media (min-width: 1199px) {
-    .container-movie-details {
-        max-width: 1130px;
-    }
-
-    .poster-movie-details {
-        width: 85%;
-    }
-
-}
-
-@media (min-width: 1399px) {
- 
-    .container-movie-details {
-        max-width: 1290px;
-    }
-
-    .poster-movie-details {
-        width: 76%;
     }
 
 }

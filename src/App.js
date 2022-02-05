@@ -1,15 +1,15 @@
 import { Fragment } from 'react'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from './components/Footer';
 import MovieList from './pages/MovieList';
-import Navbar from './components/Navbar';
-import { BrowserRouter, Route } from "react-router-dom";
+import { Navbar } from './components/Navbar';
 import MovieDetails from './pages/MovieDetails';
+import NoPageFound from './components/NoPageFound';
 // import { Fav } from './components/Fav';
 
 function App() {
   return (
     <Fragment>
-      {/* <Fav /> */}
       <BrowserRouter>
         <Navbar
           links={[
@@ -20,8 +20,15 @@ function App() {
             }
           ]}
         />
-        <Route exact path='/' component={MovieList} />
-        <Route path='/details/:id' component={MovieDetails} />
+        <Switch>
+
+          <Route exact path='/' component={MovieList} />
+          <Route path='/details/:id' component={MovieDetails} />
+          <Route path='*'>
+            <NoPageFound />
+          </Route>
+
+        </Switch>
       </BrowserRouter>
       <Footer />
     </Fragment>
