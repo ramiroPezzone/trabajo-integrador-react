@@ -35,6 +35,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.title, .sinapsis {
+    padding: 0 10px;
+}
 
 .movieSinapsis {
     display: -webkit-box;

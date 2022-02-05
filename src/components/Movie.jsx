@@ -15,9 +15,9 @@ export const Movie = (props) => {
                 />
             </div>
             <div className={styles.cardDatosMovie}>
-                <h5 className={styles.movieTitle}>{props.title}</h5>
+                <h5 className={`${styles.movieTitle} ${styles.title}`}>{props.title}</h5>
                 <div className={styles.containerSinapsis}>
-                    <p className={styles.movieSinapsis}>{props.overview}</p>
+                    <p className={`${styles.movieSinapsis} ${styles.sinapsis}`}>{props.overview}</p>
                 </div>
                 <ButtonDetails
                     to={props.link} />
