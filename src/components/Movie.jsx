@@ -1,23 +1,23 @@
 import React from 'react';
 import { ButtonDetails } from './ButtonDetails';
-import './Movie.css'
+import styles from './Movie.module.css'
 
 export const Movie = (props) => {
     
     return (
-        <div className='container-movie'>
-            <div className='container-poster-movie'>
+        <div className={styles.containerMovie}>
+            <div className={styles.containerPosterMovie}>
                 <div
-                    className='poster-movie'
+                    className={styles.posterMovie}
                     style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${props.poster_path})`
             }}
                 />
             </div>
-            <div className='card-datos-movie'>
-                <h5 className='movie-title'>{props.title}</h5>
-                <div className='container-sinapsis'>
-                    <p className='movie-sinapsis'>{props.overview}</p>
+            <div className={styles.cardDatosMovie}>
+                <h5 className={styles.movieTitle}>{props.title}</h5>
+                <div className={styles.containerSinapsis}>
+                    <p className={styles.movieSinapsis}>{props.overview}</p>
                 </div>
                 <ButtonDetails
                     to={props.link} />

@@ -14,18 +14,16 @@ const MovieDetails = () => {
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
     let endPoint = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
 
-    useEffect(async () => {
-        await fetch(endPoint)
+    useEffect(() => {
+        fetch(endPoint)
             .then(res => res.json())
             .then(data => {
                 setMovie(data)
             })
             .catch(error => { console.log(error) })
-    }, []);
+    }, [endPoint]);
 
-    console.log(movie);
-
-    if (movie.length == 0) {
+    if (movie.length === 0) {
         return <Loading />
     }
 
@@ -58,10 +56,10 @@ const MovieDetails = () => {
                         <p className='movie-sinapsis-details'>{movie.overview}</p>
                     </div>
                     <h5 className="rating">Rating: </h5>
-                    {/* <RangeStar
+                    <RangeStar
                         range=
-                        {valueRange}
-                    /> */}
+                        {movie.vote_average*10}
+                    />
                     <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10 (votos: {movie.vote_count})</span></h5>
                     <BackButton />
                 </div>
