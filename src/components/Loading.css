@@ -18,7 +18,7 @@
             #212529 50%, #212529 55%,
             #eeeeee 65%, #eeeeee 100%);
     background-size: 400%;
-    animation: shimmer 1500ms infinite;
+    animation: shimmer 1000ms infinite;
 }
 
 .loading h3 {
@@ -29,7 +29,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
-    animation: shimmer 1500ms infinite;
+    animation: shimmer 1000ms infinite;
 }
 @keyframes shimmer {
     from {

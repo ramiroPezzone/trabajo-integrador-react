@@ -77,7 +77,7 @@ export const Navbar = (props) => {
                 <input
                   type="search"
                   className='input-search'
-                  placeholder='buscar...'
+                  placeholder='buscar por título...'
                   value={searchParams}
                   onChange={(e) => setSearchParams(e.target.value)}
                 />

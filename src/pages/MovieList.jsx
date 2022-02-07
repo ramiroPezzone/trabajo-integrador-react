@@ -5,6 +5,8 @@ import { Container } from "../components/Container";
 import styles from '../components/Movie.module.css'
 import stylesML from './MovieList.module.css'
 import { useLocation } from "react-router-dom";
+import { RangeStar } from "../components/RangeStar";
+import { NoResults } from "../components/NoResults";
 
 function useQuery() {
     return new URLSearchParams(useLocation().search)
@@ -17,6 +19,7 @@ const MovieList = () => {
     let [movies, setMovies] = useState([]);
     let [pageSelected, setPageSelected] = useState(1)
     let [pages, setPages] = useState('');
+    let [totalDeResultados, setTotalDeResultados] = useState('');
     let [discoverFetch, setDiscoverFetch] = useState(false)
     let [consultaFetch, setConsultaFetch] = useState(false)
     let min = pageSelected <= 1 ? true : false;
@@ -37,6 +40,8 @@ const MovieList = () => {
                 .then((data) => {
                     setMovies(data.results)
                     setPages(data.total_pages);
+                    setTotalDeResultados(data.total_results);
+                    console.log(data);
                 })
                 .catch(error => { console.log(error) })
             setConsultaFetch(true)
@@ -47,8 +52,12 @@ const MovieList = () => {
                 .then((data) => {
                     setMovies(data.results)
                     setPages(data.total_pages);
+                    setTotalDeResultados(data.total_results);
                 })
-                .catch(error => { console.log(error) })
+                .catch(error => {
+                    console.log(error)
+                    return <RangeStar />
+                })
             setDiscoverFetch(true)
             setConsultaFetch(false)
         }
@@ -69,24 +78,29 @@ const MovieList = () => {
     }, [discoverFetch])
 
     // Página previa
-    function prevMovie() {
+    function prevPage() {
         setPageSelected(pageSelected -= 1)
     }
 
     // Página siguiente
-    function nextMovie() {
+    function nextPage() {
         setPageSelected(pageSelected += 1)
     }
 
+    // Cambio manual de página
+    function cambioManualDePag(e) {
+        e.preventDefault()
+        console.log(e.target);
+        setPageSelected(e.target.value)
+    }
+
     // Comienzo del renderizado del sitio
-    if (movies.length === 0) {
+    if (!consultaFetch && movies.length === 0) {
+        console.log('estado: ' + discoverFetch);
         return (
             <Loading />
         )
     };
-
-
-
 
     return (
         <Fragment>
@@ -97,7 +111,14 @@ const MovieList = () => {
                         <p>Resutados de búsqueda de:
                             <p>
                                 <span className={styles.headSearchParams}>
-                                    {consulta}
+                                    <div>
+                                        {consulta}
+                                    </div>
+                                    <div className={stylesML.noResultsText}>
+                                        {totalDeResultados === 0
+                                            ? ('sin resultados')
+                                            : true}
+                                    </div>
                                 </span>
                             </p>
                         </p>
@@ -107,22 +128,38 @@ const MovieList = () => {
                         <p className={styles.headerNovedades}>Novedades</p>
                     </>
             }
+
             <div className={stylesML.pagesControlPanel}>
-                <div className={stylesML.flexContainerControlPanel}>
-                    <div>
-                        <span className={`${stylesML.pagesArrows} ${stylesML.prevArrow}`}>
-                            <button disabled={min} onClick={prevMovie}>Anterior</button>
-                        </span>
-                    </div>
-                    <div>
-                        {`Página ${pageSelected} de ${pages}`}
-                    </div>
-                    <div>
-                        <span className={`${stylesML.pagesArrows} ${stylesML.nextArrow}`}>
-                            <button disabled={max} onClick={nextMovie}>Siguiente</button></span>
+                <div className={stylesML.contenedorGralControlPanel}>
+
+                    <p className={stylesML.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
+                    <div className={stylesML.flexContainerControlPanel}>
+                        <div>
+                            <span className={`${stylesML.pagesArrows} ${stylesML.prevArrow}`}>
+                                <button disabled={min} onClick={prevPage}>Anterior</button>
+                            </span>
+                        </div>
+                        <div>
+                            Página
+                            <input
+                                type='text'
+                                className={stylesML.input}
+                                value={pageSelected}
+                                max={pages}
+                                onChange={(e) => setPageSelected(e.target.value)}
+                            />
+                            de {pages}
+                        </div>
+                        <div>
+                            <span className={`${stylesML.pagesArrows} ${stylesML.nextArrow}`}>
+                                <button disabled={max} onClick={nextPage}>Siguiente</button></span>
+                        </div>
                     </div>
                 </div>
             </div>
+            {totalDeResultados === 0
+                ? <NoResults />
+                : true}
             <Container>
                 {movies.map(movie => (
                     <div
