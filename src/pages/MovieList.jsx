@@ -87,13 +87,6 @@ const MovieList = () => {
         setPageSelected(pageSelected += 1)
     }
 
-    // Cambio manual de página
-    function cambioManualDePag(e) {
-        e.preventDefault()
-        console.log(e.target);
-        setPageSelected(e.target.value)
-    }
-
     // Comienzo del renderizado del sitio
     if (!consultaFetch && movies.length === 0) {
         console.log('estado: ' + discoverFetch);
