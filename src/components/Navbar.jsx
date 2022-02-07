@@ -1,9 +1,15 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './Navbar.css'
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search)
+}
+
 export const Navbar = (props) => {
+
+  const queryS = useQuery().get("s")
 
   const [cambiarClase, setCambiarClase] = useState(true);
 
@@ -16,6 +22,10 @@ export const Navbar = (props) => {
     history.push("/?s=" + searchParams)
   };
 
+  useEffect(() => {
+    setSearchParams(queryS || '');
+  }, [queryS]);
+  
   const menuHambClicked = () => {
     setCambiarClase(!cambiarClase)
   };

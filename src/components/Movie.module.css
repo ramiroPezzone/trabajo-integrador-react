@@ -50,6 +50,19 @@
     margin-bottom: 22px;
 }
 
+.headerPagesControlPanel, .headerNovedades {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+.headSearchParams {
+    font-size: 1.6rem;
+}
+
 @media (min-width: 767px) {
     .cardMovie {
         width: 334px;

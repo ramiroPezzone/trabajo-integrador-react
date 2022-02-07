@@ -8,6 +8,7 @@
 }
 
 body {
+  position: relative;
   padding-bottom: 148px;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
