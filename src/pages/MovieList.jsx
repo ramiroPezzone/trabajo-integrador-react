@@ -24,7 +24,7 @@ const MovieList = () => {
     let min = pageSelected <= 1 ? true : false;
     let max = pageSelected < pages ? false : true;
 
-    let endPointGral = 'http://api.themoviedb.org/3';
+    let endPointGral = 'https://api.themoviedb.org/3';
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e';
 
     let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=original_title.desc&page=${pageSelected}&query=${consulta}`;

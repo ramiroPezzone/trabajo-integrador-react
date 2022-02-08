@@ -9,7 +9,7 @@ export const Movie = (props) => {
 
     !posterPath
         ? poster = ``
-        : poster = `url(http://image.tmdb.org/t/p/w500/${posterPath})`
+        : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
 
     return (
         <div className={styles.containerMovie}>

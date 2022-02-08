@@ -12,7 +12,7 @@ const MovieDetails = () => {
 
     let [movie, setMovie] = useState([])
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-    let endPoint = 'http://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
+    let endPoint = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
 
     // Fecth de página de detalles
     useEffect(() => {
