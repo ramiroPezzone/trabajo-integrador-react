@@ -3,7 +3,8 @@ import { ButtonDetails } from './ButtonDetails';
 import styles from './Movie.module.css'
 
 export const Movie = (props) => {
-    
+
+    // if()
     return (
         <div className={styles.containerMovie}>
             <div className={styles.containerPosterMovie}>

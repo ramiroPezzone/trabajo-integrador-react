@@ -1,4 +1,7 @@
 .containerMovie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     width: 90%;
     margin: 0 auto;
     color: rgb(33, 37, 41);
@@ -8,14 +11,17 @@
 .containerPosterMovie {
     width: 100%;
 }
-
-.posterMovie {
+.cardMovie {
     width: 100%;
-    height: 140vw;
+}
+.posterMovie {
+    margin: 0 auto;
+    width: 100%;
+    height: 50vh;
     border-radius: 5px 5px 0 0;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: center;
 }
 
 .cardMatosMovie {

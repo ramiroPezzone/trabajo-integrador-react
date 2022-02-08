@@ -29,7 +29,8 @@ const MovieList = () => {
 
     let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=original_title.desc&page=${pageSelected}&query=${consulta}`;
 
-    let discover = `${endPointGral}/discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
+    let discover = `${endPointGral}/discover/movie/?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
+    // let discover = `${endPointGral}/movie/upcoming?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
 
     // Fetchs gral y de búsquedas
     useEffect(() => {
@@ -175,7 +176,10 @@ const MovieList = () => {
                         <Movie
                             poster_path={movie.poster_path}
                             title={movie.title}
-                            overview={movie.overview}
+                            overview={
+                                !movie.overview 
+                                ? (<i>Sin descripción disponible</i>) 
+                                : movie.overview }
                             link={movie.id}
                         />
                     </div>
