@@ -12,7 +12,7 @@ const MovieDetails = () => {
 
     let [movie, setMovie] = useState([])
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-    let endPoint = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
+    let endPoint = 'http://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
 
     // Fecth de página de detalles
     useEffect(() => {
@@ -32,7 +32,7 @@ const MovieDetails = () => {
         <Fragment>
             <div className='container-movie-details'>
                 <div className="poster-movie-details">
-                    <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
+                    <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
                 </div>
                 <div className='card-datos-movie-details'>
                     <h2 className='movie-title'>Título: {movie.title}</h2>
