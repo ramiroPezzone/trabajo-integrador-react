@@ -5,7 +5,6 @@ import { Container } from "../components/Container";
 import styles from '../components/Movie.module.css'
 import stylesML from './MovieList.module.css'
 import { useLocation } from "react-router-dom";
-import { RangeStar } from "../components/RangeStar";
 import { NoResults } from "../components/NoResults";
 
 function useQuery() {
@@ -28,7 +27,7 @@ const MovieList = () => {
     let endPointGral = 'https://api.themoviedb.org/3';
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e';
 
-    let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}&query=${consulta}`;
+    let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=original_title.desc&page=${pageSelected}&query=${consulta}`;
 
     let discover = `${endPointGral}/discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
 
@@ -39,9 +38,18 @@ const MovieList = () => {
                 .then(res => res.json())
                 .then((data) => {
                     setMovies(data.results)
-                    setPages(data.total_pages);
-                    setTotalDeResultados(data.total_results);
-                    console.log(data);
+
+                    if (data.total_pages > 500) {
+                        setPages(500);
+                    } else {
+                        setPages(data.total_pages)
+                    }
+
+                    if (data.total_results > 10000) {
+                        setTotalDeResultados(10000)
+                    } else {
+                        setTotalDeResultados(data.total_results);
+                    }
                 })
                 .catch(error => { console.log(error) })
             setConsultaFetch(true)
@@ -51,12 +59,21 @@ const MovieList = () => {
                 .then(res => res.json())
                 .then((data) => {
                     setMovies(data.results)
-                    setPages(data.total_pages);
-                    setTotalDeResultados(data.total_results);
+
+                    if (data.total_pages > 500) {
+                        setPages(500);
+                    } else {
+                        setPages(data.total_pages)
+                    }
+
+                    if (data.total_results > 10000) {
+                        setTotalDeResultados(10000)
+                    } else {
+                        setTotalDeResultados(data.total_results);
+                    }
                 })
                 .catch(error => {
                     console.log(error)
-                    return <RangeStar />
                 })
             setDiscoverFetch(true)
             setConsultaFetch(false)
@@ -97,11 +114,12 @@ const MovieList = () => {
 
     return (
         <Fragment>
+            {/* CABECERA */}
             {
                 consulta
                     ?
                     <div className={styles.headerPagesControlPanel}>
-                        <p>Resutados de búsqueda de:
+                        <p>Resultados de búsqueda de:
                             <p>
                                 <span className={styles.headSearchParams}>
                                     <div>
@@ -118,9 +136,15 @@ const MovieList = () => {
                     </div>
                     :
                     <>
-                        <p className={styles.headerNovedades}>Novedades</p>
+                        <p className={styles.headerNovedades}>Cartelera de novedades</p>
                     </>
             }
+
+            {/* CUANDO LA BÚSQUEDA NO ARROJA RESULTADOS */}
+            {totalDeResultados === 0
+                ? <NoResults />
+                : true}
+            {/*  */}
 
             <div className={stylesML.pagesControlPanel}>
                 <div className={stylesML.contenedorGralControlPanel}>
@@ -133,15 +157,7 @@ const MovieList = () => {
                             </span>
                         </div>
                         <div>
-                            Página
-                            <input
-                                type='text'
-                                className={stylesML.input}
-                                value={pageSelected}
-                                max={pages}
-                                onChange={(e) => setPageSelected(e.target.value)}
-                            />
-                            de {pages}
+                            Página {pageSelected} de {pages}
                         </div>
                         <div>
                             <span className={`${stylesML.pagesArrows} ${stylesML.nextArrow}`}>
@@ -150,9 +166,6 @@ const MovieList = () => {
                     </div>
                 </div>
             </div>
-            {totalDeResultados === 0
-                ? <NoResults />
-                : true}
             <Container>
                 {movies.map(movie => (
                     <div
