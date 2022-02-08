@@ -106,8 +106,10 @@ const MovieList = () => {
     }
 
     // Comienzo del renderizado del sitio
+    console.log('estado discover: ' + discoverFetch);
+    console.log('estado consultas: ' + consultaFetch);
+    console.log('extensión de movies: ' + movies.length);
     if (!consultaFetch && movies.length === 0) {
-        console.log('estado: ' + discoverFetch);
         return (
             <Loading />
         )
@@ -177,9 +179,9 @@ const MovieList = () => {
                             poster_path={movie.poster_path}
                             title={movie.title}
                             overview={
-                                !movie.overview 
-                                ? (<i>Sin descripción disponible</i>) 
-                                : movie.overview }
+                                !movie.overview
+                                    ? (<i>Sin descripción disponible</i>)
+                                    : movie.overview}
                             link={movie.id}
                         />
                     </div>

@@ -11,8 +11,6 @@ export const Movie = (props) => {
         ? poster = ``
         : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
 
-    console.log(poster);
-
     return (
         <div className={styles.containerMovie}>
             <div className={styles.containerPosterMovie}>
