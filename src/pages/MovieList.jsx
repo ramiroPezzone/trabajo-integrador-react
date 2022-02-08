@@ -106,9 +106,6 @@ const MovieList = () => {
     }
 
     // Comienzo del renderizado del sitio
-    console.log('estado discover: ' + discoverFetch);
-    console.log('estado consultas: ' + consultaFetch);
-    console.log('extensión de movies: ' + movies.length);
     if (!consultaFetch && movies.length === 0) {
         return (
             <Loading />

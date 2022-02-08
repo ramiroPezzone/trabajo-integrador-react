@@ -1,4 +1,5 @@
 .containerMovie {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -8,12 +9,15 @@
     border: 1px solid #dfdfdf;
     border-radius: 5px;
 }
+
 .containerPosterMovie {
     width: 100%;
 }
+
 .cardMovie {
     width: 100%;
 }
+
 .posterMovie {
     background-image: url(/src/assets/img/sinImagen.png);
     margin: 0 auto;
@@ -24,7 +28,6 @@
     background-size: cover;
     background-position: 50% 50%;
 }
-
 .cardMatosMovie {
     padding: .5rem 1rem;
     box-sizing: border-box;
@@ -42,7 +45,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.title, .sinapsis {
+
+.title,
+.sinapsis {
     padding: 0 10px;
 }
 
@@ -57,7 +62,8 @@
     margin-bottom: 22px;
 }
 
-.headerPagesControlPanel, .headerNovedades {
+.headerPagesControlPanel,
+.headerNovedades {
     background-color: #212529;
     color: #fff;
     text-align: center;
@@ -66,6 +72,7 @@
     font-weight: 600;
     font-size: 1.4rem;
 }
+
 .headSearchParams {
     font-size: 1.6rem;
 }
@@ -74,6 +81,7 @@
     .cardMovie {
         width: 334px;
     }
+
     .posterMovie {
         height: 501px;
     }
@@ -84,6 +92,7 @@
     .cardMovie {
         width: 214px;
     }
+
     .posterMovie {
         height: 321px;
     }
@@ -93,6 +102,7 @@
     .cardMovie {
         width: 300px;
     }
+
     .posterMovie {
         height: 450px;
     }

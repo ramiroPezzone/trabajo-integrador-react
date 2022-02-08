@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ButtonDetails } from './ButtonDetails';
 import styles from './Movie.module.css'
+import './FavStar.css'
 
 export const Movie = (props) => {
+
+    let [favState, setFavState] = useState(false)
 
     let posterPath = props.poster_path;
     let poster = '';
@@ -11,13 +14,24 @@ export const Movie = (props) => {
         ? poster = ``
         : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
 
+    function changeFavState() {
+        setFavState(!favState)
+    }
+
+    console.log(favState);
     return (
         <div className={styles.containerMovie}>
+            <div
+                className={favState
+                    ? 'favStarEnabled'
+                    : 'favStarDisabled'}
+                onClick={changeFavState}
+            />
             <div className={styles.containerPosterMovie}>
                 <div
                     className={styles.posterMovie}
                     style={{
-                        background: poster,    
+                        background: poster,
                         margin: '0 auto',
                         width: '100%',
                         height: '500px',
