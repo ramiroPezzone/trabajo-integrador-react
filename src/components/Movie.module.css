@@ -15,12 +15,13 @@
     width: 100%;
 }
 .posterMovie {
+    background-image: url(/src/assets/img/sinImagen.png);
     margin: 0 auto;
     width: 100%;
     height: 50vh;
     border-radius: 5px 5px 0 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 

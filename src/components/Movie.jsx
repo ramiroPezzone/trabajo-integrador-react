@@ -4,15 +4,24 @@ import styles from './Movie.module.css'
 
 export const Movie = (props) => {
 
-    // if()
+    let posterPath = props.poster_path;
+    let poster = '';
+
+    !posterPath
+        ? poster = ``
+        : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
+
+    console.log(poster);
+
     return (
         <div className={styles.containerMovie}>
             <div className={styles.containerPosterMovie}>
                 <div
                     className={styles.posterMovie}
                     style={{
-                        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${props.poster_path})`
-            }}
+                        background: poster,
+                        backgroundSize: 'cover'
+                    }}
                 />
             </div>
             <div className={styles.cardDatosMovie}>
