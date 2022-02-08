@@ -30,7 +30,6 @@ const MovieList = () => {
     let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=original_title.desc&page=${pageSelected}&query=${consulta}`;
 
     let discover = `${endPointGral}/discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
-    // let discover = `${endPointGral}/movie/upcoming?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${pageSelected}`;
 
     // Fetchs gral y de búsquedas
     useEffect(() => {

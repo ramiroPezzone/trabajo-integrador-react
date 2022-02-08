@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { ButtonDetails } from './ButtonDetails';
 import styles from './Movie.module.css'
 import './FavStar.css'
+import FavStar from './FavStar';
 
 export const Movie = (props) => {
-
-    let [favState, setFavState] = useState(false)
 
     let posterPath = props.poster_path;
     let poster = '';
@@ -14,19 +13,16 @@ export const Movie = (props) => {
         ? poster = ``
         : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
 
-    function changeFavState() {
-        setFavState(!favState)
-    }
-
-    console.log(favState);
     return (
         <div className={styles.containerMovie}>
-            <div
-                className={favState
-                    ? 'favStarEnabled'
-                    : 'favStarDisabled'}
-                onClick={changeFavState}
+
+            {/* Para establecer o quitar de favoritos */}
+            <FavStar
+                id={props.link}
+                name={props.title}
             />
+            {/*  */}
+
             <div className={styles.containerPosterMovie}>
                 <div
                     className={styles.posterMovie}

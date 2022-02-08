@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BackButton } from "../components/BackButton";
+import FavStar from "../components/FavStar";
 import { Loading } from "../components/Loading";
 import { RangeStar } from "../components/RangeStar";
 import './MovieDetails.css'
 
 
-const MovieDetails = () => {
+const MovieDetails = (props) => {
 
     const { id } = useParams()
 
@@ -59,7 +60,7 @@ const MovieDetails = () => {
                     <h5 className="rating">Rating: </h5>
                     <RangeStar
                         range=
-                        {movie.vote_average*10}
+                        {movie.vote_average * 10}
                     />
                     <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10 (votos: {movie.vote_count})</span></h5>
                     <BackButton />
