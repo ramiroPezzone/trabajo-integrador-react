@@ -17,8 +17,14 @@ export const Movie = (props) => {
                 <div
                     className={styles.posterMovie}
                     style={{
-                        background: poster,
-                        backgroundSize: 'cover'
+                        background: poster,    
+                        margin: '0 auto',
+                        width: '100%',
+                        height: '500px',
+                        borderRadius: '5px 5px 0 0',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPosition: '50% 50%',
                     }}
                 />
             </div>
