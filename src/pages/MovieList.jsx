@@ -3,7 +3,7 @@ import { Movie } from '../components/Movie';
 import { Loading } from "../components/Loading";
 import { Container } from "../components/Container";
 import styles from '../components/Movie.module.css'
-import stylesML from './MovieList.module.css'
+import stylesPageSelector from '../components/PageSelector.module.css'
 import { useLocation } from "react-router-dom";
 import { NoResults } from "../components/NoResults";
 
@@ -123,7 +123,7 @@ const MovieList = () => {
                                 <div>
                                     {consulta}
                                 </div>
-                                <div className={stylesML.noResultsText}>
+                                <div className={styles.noResultsText}>
                                     {totalDeResultados === 0
                                         ? ('sin resultados')
                                         : true}
@@ -143,13 +143,14 @@ const MovieList = () => {
                 : true}
             {/*  */}
 
-            <div className={stylesML.pagesControlPanel}>
-                <div className={stylesML.contenedorGralControlPanel}>
+            {/* Contenedor de selector de páginas */}
+            <div className={stylesPageSelector.pagesControlPanel}>
+                <div className={stylesPageSelector.contenedorGralControlPanel}>
 
-                    <p className={stylesML.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
-                    <div className={stylesML.flexContainerControlPanel}>
+                    <p className={stylesPageSelector.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
+                    <div className={stylesPageSelector.flexContainerControlPanel}>
                         <div>
-                            <span className={`${stylesML.pagesArrows} ${stylesML.prevArrow}`}>
+                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.prevArrow}`}>
                                 <button disabled={min} onClick={prevPage}>Anterior</button>
                             </span>
                         </div>
@@ -157,12 +158,14 @@ const MovieList = () => {
                             Página {pageSelected} de {pages}
                         </div>
                         <div>
-                            <span className={`${stylesML.pagesArrows} ${stylesML.nextArrow}`}>
+                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.nextArrow}`}>
                                 <button disabled={max} onClick={nextPage}>Siguiente</button></span>
                         </div>
                     </div>
                 </div>
             </div>
+            {/*  */}
+
             <Container>
                 {movies.map(movie => (
                     <div

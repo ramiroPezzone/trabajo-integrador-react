@@ -77,12 +77,29 @@
 
 .ul-menu ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .ul-menu li {
     list-style: none;
 }
+
+.ul-menu ul li:last-child a {
+    font-size: 1.2em;
+    font-weight: 600;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.ul-menu ul li:last-child a:hover {
+    font-weight: bold;
+    color: red;
+    text-shadow: 2px 2px 5px rgb(255, 255, 0), -2px 2px 5px rgb(255, 255, 0), 2px -2px 5px rgb(255, 255, 0), -2px -2px 5px rgb(255, 255, 0);
+    transition: .5s;
+}
+
 
 .ul-menu a {
     font-size: 16px;
@@ -219,6 +236,12 @@
         background-color: #0DCAF0;
         color: #212529;
         transition: .2s;
+    }
+
+    .ul-menu ul {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0;
     }
 
 

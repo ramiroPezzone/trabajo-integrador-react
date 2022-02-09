@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import MovieDetails from './pages/MovieDetails';
 import ComingSoon from './pages/ComingSoon';
 import NoPageFound from './components/NoPageFound';
+import Favs from './pages/Favs';
 // import { Fav } from './components/Fav';
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
           <Route exact path='/' component={MovieList} />
           <Route path='/details/:id' component={MovieDetails} />
-          <Route path='/favs' component={MovieDetails} />
+          <Route path='/favs' component={Favs} />
           <Route path='/coming-soon' component={ComingSoon} />
           <Route path='*'>
             <NoPageFound />
