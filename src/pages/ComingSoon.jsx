@@ -1,34 +1,29 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { BackButton } from "../components/BackButton";
-import FavStarSetter from "../components/FavStarSetter";
-import { Loading } from "../components/Loading";
-import { RangeStar } from "../components/RangeStar";
+// import React, { Fragment, useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import { BackButton } from "../components/BackButton";
+// import FavStarSetter from "../components/FavStarSetter";
+// import { Loading } from "../components/Loading";
+// import { RangeStar } from "../components/RangeStar";
 import './MovieDetails.css'
 
 
 const ComingSoom = () => {
 
-    let [movies, setMovies] = useState([])
+    // let [comingSoon, setComingSoon] = useState([])
 
     console.log(localStorage);
 
-    let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
+    // let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
 
-    useEffect(() => {
-        // fetch(`https://api.themoviedb.org/3/find/${}?api_key=${apiKey}&language=es-ES&external_source=imdb_id`)
-        //     .then(res => res.json())
-        //     .then(data=>(
-        //         setMovies(data)
-        //     ))
-    })
+    // useEffect(() => {
+    // })
 
     // if (movie.length === 0) {
     //     return <Loading />
     // }
 
     return (
-        <Fragment>
+        // <Fragment>
             <div className='container-movie-details'>
 
                 {/* <div className="poster-movie-details">
@@ -71,7 +66,7 @@ const ComingSoom = () => {
                     <BackButton />
                 </div> */}
             </div>
-        </Fragment>
+        // </Fragment>
     )
 };
 
