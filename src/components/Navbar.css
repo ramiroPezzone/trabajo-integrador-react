@@ -75,6 +75,11 @@
     gap: 18px;
 }
 
+.ul-menu ul {
+    display: flex;
+    flex-direction: row;
+}
+
 .ul-menu li {
     list-style: none;
 }
@@ -137,13 +142,16 @@
     margin-top: -300px;
     transition: .5s;
 }
+
 .menu-lg-deployed {
     width: 100%;
     transition: .3s;
 }
 
 @media (min-width: 992px) {
-    .menu-hamburguesa, .menu-hamburguesa-selected {
+
+    .menu-hamburguesa,
+    .menu-hamburguesa-selected {
         display: none;
     }
 
@@ -178,11 +186,12 @@
         outline: 4px solid #1C375F;
         transition: .5s;
     }
-    
+
     .input-search::placeholder {
-        text-align:center;
+        text-align: center;
         transition: .5s;
     }
+
     .input-search:focus::placeholder {
         color: rgb(197, 197, 197);
         transition: .5s;

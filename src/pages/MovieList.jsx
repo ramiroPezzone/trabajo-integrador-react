@@ -114,30 +114,28 @@ const MovieList = () => {
     return (
         <Fragment>
             {/* CABECERA */}
-            {
-                consulta
-                    ?
-                    <div className={styles.headerPagesControlPanel}>
-                        <p>Resultados de búsqueda de:
-                            <p>
-                                <span className={styles.headSearchParams}>
-                                    <div>
-                                        {consulta}
-                                    </div>
-                                    <div className={stylesML.noResultsText}>
-                                        {totalDeResultados === 0
-                                            ? ('sin resultados')
-                                            : true}
-                                    </div>
-                                </span>
-                            </p>
+            {consulta
+                ?
+                <div className={styles.headerPagesControlPanel}>
+                    <p>Resultados de búsqueda de:
+                        <p>
+                            <span className={styles.headSearchParams}>
+                                <div>
+                                    {consulta}
+                                </div>
+                                <div className={stylesML.noResultsText}>
+                                    {totalDeResultados === 0
+                                        ? ('sin resultados')
+                                        : true}
+                                </div>
+                            </span>
                         </p>
-                    </div>
-                    :
-                    <>
-                        <p className={styles.headerNovedades}>Cartelera de novedades</p>
-                    </>
-            }
+                    </p>
+                </div>
+                :
+                <>
+                    <p className={styles.headerNovedades}>Cartelera de novedades</p>
+                </>}
 
             {/* CUANDO LA BÚSQUEDA NO ARROJA RESULTADOS */}
             {totalDeResultados === 0

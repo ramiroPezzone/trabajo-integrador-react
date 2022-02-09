@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ButtonDetails } from './ButtonDetails';
 import styles from './Movie.module.css'
-import './FavStar.css'
-import FavStar from './FavStar';
+// import './FavStarSetter.css'
+import FavStarSetter from './FavStarSetter';
 
 export const Movie = (props) => {
 
@@ -17,10 +17,12 @@ export const Movie = (props) => {
         <div className={styles.containerMovie}>
 
             {/* Para establecer o quitar de favoritos */}
-            <FavStar
-                id={props.link}
-                name={props.title}
-            />
+            <div className={styles.containerFavStarMovie}>
+                <FavStarSetter
+                    id={props.link}
+                    name={props.title}
+                />
+            </div>
             {/*  */}
 
             <div className={styles.containerPosterMovie}>
@@ -28,12 +30,8 @@ export const Movie = (props) => {
                     className={styles.posterMovie}
                     style={{
                         background: poster,
-                        margin: '0 auto',
-                        width: '100%',
-                        height: '500px',
-                        borderRadius: '5px 5px 0 0',
+                        backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover',
                         backgroundPosition: '50% 50%',
                     }}
                 />

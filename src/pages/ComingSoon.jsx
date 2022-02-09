@@ -7,44 +7,40 @@ import { RangeStar } from "../components/RangeStar";
 import './MovieDetails.css'
 
 
-const MovieDetails = () => {
+const ComingSoom = () => {
 
-    const { id } = useParams()
+    let [movies, setMovies] = useState([])
 
-    let [movie, setMovie] = useState([])
+    console.log(localStorage);
+
     let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-    let endPoint = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&language=es-ES&sort_by=popularity.desc&page=1'
 
-    // Fecth de página de detalles
     useEffect(() => {
-        fetch(endPoint)
-            .then(res => res.json())
-            .then(data => {
-                setMovie(data)
-            })
-            .catch(error => { console.log(error) })
-    }, [endPoint]);
+        // fetch(`https://api.themoviedb.org/3/find/${}?api_key=${apiKey}&language=es-ES&external_source=imdb_id`)
+        //     .then(res => res.json())
+        //     .then(data=>(
+        //         setMovies(data)
+        //     ))
+    })
 
-    if (movie.length === 0) {
-        return <Loading />
-    }
-
-    console.log(movie.id);
+    // if (movie.length === 0) {
+    //     return <Loading />
+    // }
 
     return (
         <Fragment>
-
             <div className='container-movie-details'>
 
-                <div className="poster-movie-details">
+                {/* <div className="poster-movie-details">
                     <div className='containerFavStarDetails' >
                         <FavStarSetter
-                            id={movie.id}
+                            id={favs.id}
                         />
                     </div>
                     <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
-                </div>
-                <div className='card-datos-movie-details'>
+                </div> */}
+
+                {/* <div className='card-datos-movie-details'>
                     <h2 className='movie-title'>Título: {movie.title}</h2>
                     <div>
                         <h5 className="movie-genres">
@@ -73,10 +69,10 @@ const MovieDetails = () => {
                     />
                     <h5 className="value-rating">{movie.vote_average} <span className="value-max">/ 10 (votos: {movie.vote_count})</span></h5>
                     <BackButton />
-                </div>
+                </div> */}
             </div>
         </Fragment>
     )
 };
 
-export default MovieDetails;
+export default ComingSoom;
