@@ -13,14 +13,12 @@ const FavStar = (props) => {
     }
 
     return (
-        <div className='containerFavStar'>
-            <div
-                className={localStorage.getItem(props.id) === null
-                    ? 'favStarDisabled'
-                    : 'favStarEnabled'}
-                onClick={changeFavState}
-            />
-        </div>
+        <div
+            className={localStorage.getItem(props.id) === null
+                ? 'favStarDisabled'
+                : 'favStarEnabled'}
+            onClick={changeFavState}
+        />
     );
 };
 

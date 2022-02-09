@@ -1,27 +1,26 @@
-
 .favStarDisabled {
     position: absolute;
-    background-image: url(/src/assets/img/fav-disabled.png);
-    background-size: 70px;
-    background-repeat: no-repeat;
+    width: 70px;
     height: 70px;
+    background: url(/src/assets/img/fav-disabled.png) no-repeat;
+    background-size: 70px;
     top: 10px;
-    right: 0px;
-    left: 10px;
-    margin: auto;
-    z-index: 1000;
+    right: 10px;
+    cursor: pointer;
     opacity: .7;
-}
-.favStarEnabled {
-    position: absolute;
-    background-image: url(/src/assets/img/fav-enabled.png);
-    background-size: 70px;
-    background-repeat: no-repeat;
-    height: 70px;
-    top: 10px;
-    right: 0px;
-    left: 10px;
-    margin: auto;
-    z-index: 1000;
+    transition: .4s;
 }
 
+.favStarEnabled {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: url(/src/assets/img/fav-enabled.png) no-repeat;
+    background-size: 70px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 1;
+    filter: drop-shadow(4px 4px 4px #000);
+    transition: .1s;
+}
