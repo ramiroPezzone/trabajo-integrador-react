@@ -1,7 +1,6 @@
 import React from 'react';
 import { ButtonDetails } from './ButtonDetails';
 import styles from './Movie.module.css'
-// import './FavStarSetter.css'
 import FavStarSetter from './FavStarSetter';
 
 export const Movie = (props) => {
@@ -13,11 +12,20 @@ export const Movie = (props) => {
         ? poster = ``
         : poster = `url(https://image.tmdb.org/t/p/w500/${posterPath})`
 
+    const changeFavState = () => {
+        let favsList = []
+        // let addFav = ;
+        favsList.push(props.link)
+        console.log(favsList);
+    }
+
+
+
     return (
         <div className={styles.containerMovie}>
 
             {/* Para establecer o quitar de favoritos */}
-            <div className={styles.containerFavStarMovie}>
+            <div className={styles.containerFavStarMovie} onClick={changeFavState}>
                 <FavStarSetter
                     id={props.link}
                     name={props.title}

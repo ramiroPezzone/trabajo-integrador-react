@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Movie } from '../components/Movie';
-import { Loading } from "../components/Loading";
-import { Container } from "../components/Container";
-import styles from '../components/Movie.module.css'
-import stylesPageSelector from '../components/PageSelector.module.css'
+import { Movie } from '../../components/Movie';
+import { Loading } from "../../components/Loading";
+import { Container } from "../../components/Container";
+import styles from '../../components/Movie.module.css'
+import stylesPageSelector from '../../components/PageSelector.module.css'
 import { useLocation } from "react-router-dom";
-import { NoResults } from "../components/NoResults";
+import { NoResults } from "../../components/NoResults";
 
-function useQuery() {
+const useQuery = () => {
     return new URLSearchParams(useLocation().search)
 }
 
@@ -95,12 +95,12 @@ const MovieList = () => {
     }, [discoverFetch])
 
     // Página previa
-    function prevPage() {
+    const prevPage = () => {
         setPageSelected(pageSelected -= 1)
     }
 
     // Página siguiente
-    function nextPage() {
+    const nextPage = () => {
         setPageSelected(pageSelected += 1)
     }
 
@@ -134,7 +134,7 @@ const MovieList = () => {
                 </div>
                 :
                 <>
-                    <p className={styles.headerNovedades}>Cartelera de novedades</p>
+                    <p className={styles.headerNovedades}>Todas las películas</p>
                 </>}
 
             {/* CUANDO LA BÚSQUEDA NO ARROJA RESULTADOS */}

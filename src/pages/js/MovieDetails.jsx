@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BackButton } from "../components/BackButton";
-import FavStarSetter from "../components/FavStarSetter";
-import { Loading } from "../components/Loading";
-import { RangeStar } from "../components/RangeStar";
-import './MovieDetails.css'
+import { BackButton } from "../../components/BackButton";
+import FavStarSetter from "../../components/FavStarSetter";
+import { Loading } from "../../components/Loading";
+import { RangeStar } from "../../components/RangeStar";
+import '../css/MovieDetails.css'
 
 
 const MovieDetails = () => {

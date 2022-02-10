@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Loading } from "../components/Loading";
-import { Movie } from '../components/Movie'
-import './MovieDetails.css'
-import { Container } from "../components/Container";
-import stylesPageSelector from '../components/PageSelector.module.css'
-import styles from '../components/Movie.module.css'
+import { Loading } from "../../components/Loading";
+import { Movie } from '../../components/Movie'
+import '../css/MovieDetails.css'
+import { Container } from "../../components/Container";
+import stylesPageSelector from '../../components/PageSelector.module.css'
+import styles from '../../components/Movie.module.css'
 
 
 const ComingSoom = () => {
