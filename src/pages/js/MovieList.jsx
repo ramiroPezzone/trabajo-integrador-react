@@ -1,31 +1,30 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Movie } from '../../components/Movie';
+import { Movie } from "../../components/Movie";
 import { Loading } from "../../components/Loading";
 import { Container } from "../../components/Container";
-import styles from '../../components/Movie.module.css'
-import stylesPageSelector from '../../components/PageSelector.module.css'
+import styles from "../../components/Movie.module.css";
+import stylesPageSelector from "../../components/PageSelector.module.css";
 import { useLocation } from "react-router-dom";
 import { NoResults } from "../../components/NoResults";
 
 const useQuery = () => {
-    return new URLSearchParams(useLocation().search)
-}
+    return new URLSearchParams(useLocation().search);
+};
 
 const MovieList = () => {
-
     const consulta = useQuery().get("s");
 
     let [movies, setMovies] = useState([]);
-    let [pageSelected, setPageSelected] = useState(1)
-    let [pages, setPages] = useState('');
-    let [totalDeResultados, setTotalDeResultados] = useState('');
-    let [discoverFetch, setDiscoverFetch] = useState(false)
-    let [consultaFetch, setConsultaFetch] = useState(false)
+    let [pageSelected, setPageSelected] = useState(1);
+    let [pages, setPages] = useState("");
+    let [totalDeResultados, setTotalDeResultados] = useState("");
+    let [discoverFetch, setDiscoverFetch] = useState(false);
+    let [consultaFetch, setConsultaFetch] = useState(false);
     let min = pageSelected <= 1 ? true : false;
     let max = pageSelected < pages ? false : true;
 
-    let endPointGral = 'https://api.themoviedb.org/3';
-    let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e';
+    let endPointGral = "https://api.themoviedb.org/3";
+    let apiKey = "2ab8fe8573dcdcf9307ac2ba7116914e";
 
     let consultas = `${endPointGral}/search/movie?api_key=${apiKey}&language=es-ES&sort_by=original_title.desc&page=${pageSelected}&query=${consulta}`;
 
@@ -35,131 +34,124 @@ const MovieList = () => {
     useEffect(() => {
         if (consulta) {
             fetch(consultas)
-                .then(res => res.json())
+                .then((res) => res.json())
                 .then((data) => {
-                    setMovies(data.results)
+                    setMovies(data.results);
 
-                    if (data.total_pages > 500) {
-                        setPages(500);
-                    } else {
-                        setPages(data.total_pages)
-                    }
+                    data.total_pages > 500
+                        ? setPages(500)
+                        : setPages(data.total_pages)
 
-                    if (data.total_results > 10000) {
-                        setTotalDeResultados(10000)
-                    } else {
-                        setTotalDeResultados(data.total_results);
-                    }
+                    data.total_results > 10000
+                        ? setTotalDeResultados(10000)
+                        : setTotalDeResultados(data.total_results)
                 })
-                .catch(error => { console.log(error) })
-            setConsultaFetch(true)
-            setDiscoverFetch(false)
+                .catch((error) => {
+                    console.log(error);
+                });
+            setConsultaFetch(true);
+            setDiscoverFetch(false);
         } else {
             fetch(discover)
-                .then(res => res.json())
+                .then((res) => res.json())
                 .then((data) => {
-                    setMovies(data.results)
+                    setMovies(data.results);
 
-                    if (data.total_pages > 500) {
-                        setPages(500);
-                    } else {
-                        setPages(data.total_pages)
-                    }
+                    data.total_pages > 500
+                        ? setPages(500)
+                        : setPages(data.total_pages);
 
-                    if (data.total_results > 10000) {
-                        setTotalDeResultados(10000)
-                    } else {
-                        setTotalDeResultados(data.total_results);
-                    }
+                    data.total_results > 10000
+                        ? setTotalDeResultados(10000)
+                        : setTotalDeResultados(data.total_results);
                 })
-                .catch(error => {
-                    console.log(error)
-                })
-            setDiscoverFetch(true)
-            setConsultaFetch(false)
+                .catch((error) => {
+                    console.log(error);
+                });
+            setDiscoverFetch(true);
+            setConsultaFetch(false);
         }
     }, [consulta, pageSelected, consultas, discover]);
 
     // Reseteo de n° de página cuando se vuelve al inicio
     useEffect(() => {
-        if (!consultaFetch) {
-            setPageSelected(1)
-        }
-    }, [consultaFetch])
+        !consultaFetch && setPageSelected(1)
+    }, [consultaFetch]);
 
     // Reseteo de n° de página cuando se hace una búsqueda
     useEffect(() => {
-        if (!discoverFetch) {
-            setPageSelected(1)
-        }
-    }, [discoverFetch])
+        !discoverFetch && setPageSelected(1)
+    }, [discoverFetch]);
 
     // Página previa
     const prevPage = () => {
-        setPageSelected(pageSelected -= 1)
-    }
+        setPageSelected((pageSelected -= 1));
+    };
 
     // Página siguiente
     const nextPage = () => {
-        setPageSelected(pageSelected += 1)
-    }
+        setPageSelected((pageSelected += 1));
+    };
 
     // Comienzo del renderizado del sitio
     if (!consultaFetch && movies.length === 0) {
-        return (
-            <Loading />
-        )
-    };
+        return <Loading />;
+    }
 
     return (
         <Fragment>
             {/* CABECERA */}
-            {consulta
-                ?
+            {consulta ? (
                 <div className={styles.headerPagesControlPanel}>
-                    <p>Resultados de búsqueda de:
+                    <p>
+                        Resultados de búsqueda de:
                         <p>
                             <span className={styles.headSearchParams}>
-                                <div>
-                                    {consulta}
-                                </div>
+                                <div>{consulta}</div>
                                 <div className={styles.noResultsText}>
-                                    {totalDeResultados === 0
-                                        ? ('sin resultados')
-                                        : true}
+                                    {totalDeResultados === 0 ? "sin resultados" : true}
                                 </div>
                             </span>
                         </p>
                     </p>
                 </div>
-                :
+            ) : (
                 <>
                     <p className={styles.headerNovedades}>Todas las películas</p>
-                </>}
+                </>
+            )}
 
             {/* CUANDO LA BÚSQUEDA NO ARROJA RESULTADOS */}
-            {totalDeResultados === 0
-                ? <NoResults />
-                : true}
+            {totalDeResultados === 0 ? <NoResults /> : true}
             {/*  */}
 
             {/* Contenedor de selector de páginas */}
             <div className={stylesPageSelector.pagesControlPanel}>
                 <div className={stylesPageSelector.contenedorGralControlPanel}>
-
-                    <p className={stylesPageSelector.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
+                    <p className={stylesPageSelector.resultadosTotal}>
+                        Total de títulos: {totalDeResultados} {totalDeResultados === 10000 && '(MAX)'}
+                    </p>
                     <div className={stylesPageSelector.flexContainerControlPanel}>
                         <div>
-                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.prevArrow}`}>
-                                <button disabled={min} onClick={prevPage}>Anterior</button>
+                            <span
+                                className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.prevArrow}`}
+                            >
+                                <button disabled={min} onClick={prevPage}>
+                                    Anterior
+                                </button>
                             </span>
                         </div>
                         <div>
                             Página {pageSelected} de {pages}
                         </div>
                         <div>
-                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.nextArrow}`}>
-                                <button disabled={max} onClick={nextPage}>Siguiente</button></span>
+                            <span
+                                className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.nextArrow}`}
+                            >
+                                <button disabled={max} onClick={nextPage}>
+                                    Siguiente
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -167,24 +159,24 @@ const MovieList = () => {
             {/*  */}
 
             <Container>
-                {movies.map(movie => (
-                    <div
-                        className={styles.cardMovie}
-                        key={movie.id}
-                    >
+                {movies.map((movie) => (
+                    <div className={styles.cardMovie} key={movie.id}>
                         <Movie
                             poster_path={movie.poster_path}
                             title={movie.title}
                             overview={
-                                !movie.overview
-                                    ? (<i>Sin descripción disponible</i>)
-                                    : movie.overview}
+                                !movie.overview ? (
+                                    <i>Sin descripción disponible</i>
+                                ) : (
+                                    movie.overview
+                                )
+                            }
                             link={movie.id}
                         />
                     </div>
                 ))}
             </Container>
-        </Fragment >
+        </Fragment>
     );
 };
 

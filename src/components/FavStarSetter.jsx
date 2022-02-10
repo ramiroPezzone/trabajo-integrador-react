@@ -3,6 +3,7 @@ import styles from './FavStarSetter.module.css'
 
 const FavStarSetter = (props) => {
 
+    console.log(props.favState);
         return (
         <div className='containerFavStar'>
             <div
