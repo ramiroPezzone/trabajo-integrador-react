@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 
 const Favs = () => {
 
-  let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-  let endPointFavs = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${apiKey}&language=es-ES`
-  let favsGuardados = localStorage
+  // let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
+  // let endPointFavs = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${apiKey}&language=es-ES`
+  // let favsGuardados = localStorage
 
   // favsGuardados.map(fav => { console.log(fav) })
 
