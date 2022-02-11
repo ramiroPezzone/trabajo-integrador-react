@@ -3,11 +3,20 @@ import styles from './FavStarSetter.module.css'
 
 const FavStarSetter = (props) => {
 
-    console.log(props.favState);
-        return (
+    const [favState, setFavState] = useState(false)
+
+    let favComing = localStorage.getItem(props.fav)
+
+    // favComing
+        // ? setFavState(true)
+        // : setFavState(false)
+
+    console.log(favComing);
+
+    return (
         <div className='containerFavStar'>
             <div
-                className={props.favState === false ? `${styles.favStarDisabled}` : `${styles.favStarEnabled}`}
+                className={favState === false ? `${styles.favStarDisabled}` : `${styles.favStarEnabled}`}
             />
         </div>
     );
