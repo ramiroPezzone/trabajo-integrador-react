@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 90%;
+    height: 50vw;
+    max-width: 700px;
+    background: url(../assets/img/withoutFavs.gif) no-repeat center;
+    background-size: cover;
+}
+
+.text {
+    text-align: center;
+    font-size: calc(1em + 1vw);
+    margin-top: 15px;
+    color: rgb(219, 139, 48);
+    font-style: italic;
+    text-shadow: 2px 2px 3px #000;
+    text-transform: uppercase;
+}

@@ -1,44 +1,87 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import { Container } from '../../components/Container';
+import { Movie } from '../../components/Movie';
+import WithoutFavs from '../../components/WithoutFavs';
 
 const Favs = () => {
 
-  // let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-  // let endPointFavs = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${apiKey}&language=es-ES`
-  // let favsGuardados = localStorage
+  let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
+  let endPointGral = "https://api.themoviedb.org/3";
 
-  // favsGuardados.map(fav => { console.log(fav) })
+  let [movieID, setMovieID] = useState('')
+
+  let [movie, setMovie] = useState('')
+
+  // let [pageSelected, setPageSelected] = useState(1);
+
+  let movieEndPoint = `${endPointGral}//movie/${movieID}?api_key=${apiKey}&language=es-ES`
+
+  let favsGuardados = localStorage
+
+  useEffect(() => {
+    let allIDs = Object.values(favsGuardados);
+    setMovieID(allIDs)
+  }, [favsGuardados])
+
+  // console.log(favsGuardados);
+
+  console.log('IDs:');
+  console.log(movieID);
+
+  useEffect(() => {
+    if (movieID !== '') {
+      let moviesMap = movieID.map((id) => {
+        fetch(movieEndPoint)
+          .then((res) => res.json())
+          .then((data) => {
+            setMovie([data]);
+          })
+          return (id)
+          .catch((error) => {
+            console.log('Ha ocurrido el siguiente error: ' + error);
+          });
+      })
+
+      console.log('moviesMap');
+      console.log(moviesMap);
+    }
+  }, [movieEndPoint]);
+
+
+  // console.log('Movies:');
+  // console.log(movie);
 
 
 
-  // useEffect(() => {
-  //   fetch(consultas)
-  //     .then(res => res.json())
-  //     .then((data) => {
-  //       setMovies(data.results)
-
-  //       if (data.total_pages > 500) {
-  //         setPages(500);
-  //       } else {
-  //         setPages(data.total_pages)
-  //       }
-
-  //       if (data.total_results > 10000) {
-  //         setTotalDeResultados(10000)
-  //       } else {
-  //         setTotalDeResultados(data.total_results);
-  //       }
-  //     })
-  //     .catch(error => { console.log(error) })
-
-  // }, [third])
-
-
-
-  console.log(localStorage);
 
   return (
     <Fragment>
-      <div>PRÓXIMAMENTE FAVS</div>
+      <Container>
+        {
+          movie === ''
+            ? <WithoutFavs />
+            : (
+              movieID.map(() => {
+                <Movie
+                  poster_path={movie.poster_path}
+                  title={movie === undefined
+                    ? 'No tenés ninguna película en favoritos'
+                    : movie.title}
+                  overview={
+                    !movie.overview ? (
+                      <i>Sin descripción disponible</i>
+                    ) : (
+                      movie.overview
+                    )
+                  }
+                  link={movie.id}
+                />
+              })
+            )
+        }
+
+      </Container>
+
     </Fragment>
   )
 }

@@ -37,7 +37,7 @@ const MovieList = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     setMovies(data.results);
-
+                    console.log(data.results);
                     data.total_pages > 500
                         ? setPages(500)
                         : setPages(data.total_pages)
@@ -56,7 +56,6 @@ const MovieList = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     setMovies(data.results);
-
                     data.total_pages > 500
                         ? setPages(500)
                         : setPages(data.total_pages);
@@ -97,6 +96,9 @@ const MovieList = () => {
     if (!consultaFetch && movies.length === 0) {
         return <Loading />;
     }
+
+    console.log(movies);
+
 
     return (
         <Fragment>

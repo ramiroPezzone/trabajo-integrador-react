@@ -18,12 +18,12 @@ function App() {
             {
               id: 'home',
               href: '/',
-              text: 'Home'
+              text: '🏠 Home'
             },
             {
               id: 'favs',
               href: '/favs',
-              text: 'Favoritos'
+              text: '⭐ Favoritos'
             },
             {
               id: 'comingSoon',

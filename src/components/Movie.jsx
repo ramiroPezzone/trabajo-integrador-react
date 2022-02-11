@@ -31,13 +31,10 @@ export const Movie = (props) => {
     } else {
       let favToAdd = [props.link];
       setFavs([...favs, favToAdd]);
-      localStorage.setItem(props.link, props.title);
+      localStorage.setItem(props.link, props.link);
       setIsFav(true);
     }
   };
-
-
-  console.log(favs);
 
   return (
     <div className={styles.containerMovie}>
@@ -48,7 +45,7 @@ export const Movie = (props) => {
           name={props.title}
           favState={favState}
           fav={isFav}
-          className={localStorage.getItem(props.link) === props.title ? `${stylesFavStar.favStarEnabled}` : `${stylesFavStar.favStarDisabled}`}
+          className={localStorage.getItem(props.link) == props.link ? `${stylesFavStar.favStarEnabled}` : `${stylesFavStar.favStarDisabled}`}
         />
       </div>
       {/*  */}

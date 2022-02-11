@@ -29,7 +29,8 @@ const MovieDetails = () => {
         return <Loading />
     }
 
-    console.log(movie.id);
+    let dateRelease = movie.release_date
+    let yearRelease = dateRelease.slice(0, 4)
 
     return (
         <Fragment>
@@ -45,7 +46,7 @@ const MovieDetails = () => {
                     <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
                 </div>
                 <div className='card-datos-movie-details'>
-                    <h2 className='movie-title'>Título: {movie.title}</h2>
+                    <h2 className='movie-title'>{movie.title}</h2>
                     <div>
                         <h5 className="movie-genres">
                             Géneros:
@@ -61,6 +62,11 @@ const MovieDetails = () => {
                                 ))
                             }
                         </ul>
+                    </div>
+                    <div>
+                        <h5 className="yearRelease">
+                            Año: <span className="year">{yearRelease}</span>
+                        </h5>
                     </div>
                     <div className='container-sinapsis-details'>
                         <h5>Reseña:</h5>

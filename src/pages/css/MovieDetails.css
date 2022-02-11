@@ -54,6 +54,12 @@ h5 {
     font-size: 1.25rem;
     font-weight: 500;
 }
+.yearRelease {
+    margin: 10px 0 ;
+}
+.year {
+    font-size: .9em;
+}
 
 .rating {
     margin-top: 30px;
