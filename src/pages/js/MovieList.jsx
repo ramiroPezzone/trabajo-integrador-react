@@ -105,6 +105,24 @@ const MovieList = () => {
         return <Loading />;
     }
 
+    if (totalDeResultados === 0) {
+        return (
+            <Fragment>
+                <div className={styles.headerPagesControlPanel}>
+                    <p>
+                        Resultados de búsqueda de:
+                        <p>
+                            <span className={styles.headSearchParams}>
+                                <div>{consulta}</div>
+                                <div className={styles.noResultsText} />
+                            </span>
+                        </p>
+                    </p>
+                </div>
+
+                <NoResults />
+            </Fragment>)
+    }
     return (
         <Fragment>
             {/* CABECERA */}
@@ -115,9 +133,6 @@ const MovieList = () => {
                         <p>
                             <span className={styles.headSearchParams}>
                                 <div>{consulta}</div>
-                                <div className={styles.noResultsText}>
-                                    {totalDeResultados === 0 ? "sin resultados" : true}
-                                </div>
                             </span>
                         </p>
                     </p>

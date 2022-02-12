@@ -86,6 +86,7 @@ export const Navbar = (props) => {
                   placeholder='buscar por título...'
                   value={searchParams}
                   onChange={(e) => setSearchParams(e.target.value)}
+                  autocomplete='on'
                 />
                 <button type='submit' className='btn-search'>
                   🔎
