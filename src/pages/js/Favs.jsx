@@ -2,87 +2,56 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Container } from '../../components/Container';
 import { Movie } from '../../components/Movie';
 import WithoutFavs from '../../components/WithoutFavs';
+import styles from "../../components/Movie.module.css";
+
 
 const Favs = () => {
 
-
-  let [movieID, setMovieID] = useState('')
-
-  let [movie, setMovie] = useState('')
-
-  // let [pageSelected, setPageSelected] = useState(1);
-
-  let movieEndPoint = ``
+  const [movies, setMovies] = useState({})
 
 
-  let favsGuardados = localStorage
-  useEffect(() => {
-    let allIDs = Object.values(favsGuardados);
-    setMovieID(allIDs)
-  }, [favsGuardados])
 
-  let apiKey = '2ab8fe8573dcdcf9307ac2ba7116914e'
-  let endPointGral = "https://api.themoviedb.org/3";
+  let favsJson = Object.values(localStorage)
+
+  let favsArray = favsJson.map(fav => {
+    let favsObj = JSON.parse(fav)
+    return favsObj
+  })
+
+
+  console.log(favsArray);
 
   useEffect(() => {
-    if (movieID.length !== 0) {
-      let moviesMap = movieID.map((id) => {
-        fetch(`${endPointGral}/movie/${id}?api_key=${apiKey}&language=es-ES`)
-          .then((res) => res.json())
-          .then((data) => {
-
-            console.log('Console Log del data: ');
-            console.log(data);
-
-            return (data)
-          })
-          .catch((error) => {
-            console.log('Ha ocurrido el siguiente error: ' + error);
-          });
-      })
-      // console.log("Id's:");
-      // console.log(movieID);
-      // console.log('Supuestas movies:');
-      // console.log(moviesMap);
-      console.log('Log del setMovie:');
-      console.log(setMovie);
-      setMovie(moviesMap)
-
-    }
-  }, [movieEndPoint, apiKey, endPointGral, movieID]);
-
-
-  // console.log('Movies:');
-  // console.log(movie);
+    setMovies(favsArray)
+  }, [])
 
 
 
+  console.log(movies);
+
+  if (movies.length === 0) {
+    return <WithoutFavs />
+  }
 
   return (
     <Fragment>
       <Container>
-        {/* {
-          movieID === ''
-            ? <WithoutFavs />
-            : (
-              movieID.map(() => {
-                <Movie
-                  poster_path={movie.poster_path}
-                  title={movie === undefined
-                    ? 'No tenés ninguna película en favoritos'
-                    : movie.title}
-                  overview={
-                    !movie.overview ? (
-                      <i>Sin descripción disponible</i>
-                    ) : (
-                      movie.overview
-                    )
-                  }
-                  link={movie.id}
-                />
-              })
-            )
-        } */}
+        {/* {movies.map((movie) => (
+          <div className={styles.cardMovie} key={movie.id}>
+            <Movie
+              // poster_path={movie.poster}
+              title={movie.name}
+              overview={
+                !movie.sinopsis ? (
+                  <i>Sin descripción disponible</i>
+                ) : (
+                  movie.sinopsis
+                )
+              }
+              link={movie.id}
+            />
+          </div>
+        ))} */}
 
       </Container>
 

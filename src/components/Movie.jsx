@@ -31,7 +31,11 @@ export const Movie = (props) => {
     } else {
       let favToAdd = [props.link];
       setFavs([...favs, favToAdd]);
-      localStorage.setItem(props.link, props.link);
+
+      let favInfo = { id: props.link, name: props.title, sinopsis: props.overview, poster: props.poster_path }
+
+      localStorage.setItem(props.link, JSON.stringify(favInfo));
+
       setIsFav(true);
     }
   };
@@ -45,7 +49,7 @@ export const Movie = (props) => {
           name={props.title}
           favState={favState}
           fav={isFav}
-          className={localStorage.getItem(props.link) == props.link ? `${stylesFavStar.favStarEnabled}` : `${stylesFavStar.favStarDisabled}`}
+          className={localStorage.hasOwnProperty(props.link) ? `${stylesFavStar.favStarEnabled}` : `${stylesFavStar.favStarDisabled}`}
         />
       </div>
       {/*  */}
