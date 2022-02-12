@@ -20,22 +20,27 @@ export const Navbar = (props) => {
   const search = (e) => {
     e.preventDefault()
     history.push("/?s=" + searchParams)
+    !cambiarClase && setCambiarClase(true)
   };
 
   useEffect(() => {
     setSearchParams(queryS || '');
   }, [queryS]);
-  
+
   const menuHambClicked = () => {
     setCambiarClase(!cambiarClase)
   };
+
+  const turnOffMenuHamb = () => {
+    !cambiarClase && setCambiarClase(true)
+  }
 
 
   return (
     <Fragment>
       <nav className='nav'>
         <div className='contenedor-flex-nav'>
-          <div className='btn-home'>
+          <div className='btn-home' onClick={turnOffMenuHamb}>
             <Link to='/'>
               MovFlix
             </Link>
@@ -60,10 +65,11 @@ export const Navbar = (props) => {
                     .links
                     .map((en) => {
                       return (
-                        <li key={en.id} className='link-ul-menu'>
+                        <li key={en.id} className='link-ul-menu' onClick={turnOffMenuHamb}>
                           <Link to={en.href}>
                             {en.text}
                           </Link>
+                          <div className='subline-link' />
                         </li>
                       )
                     })}

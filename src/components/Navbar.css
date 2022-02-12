@@ -22,17 +22,18 @@
     color: #fff;
     text-decoration: none;
     font-size: 20px;
+    transition: .3s;
+}
+
+.btn-home a:hover {
+    text-shadow: 2px 2px 5px rgb(255, 255, 255, .6), -2px 2px 5px rgb(255, 255, 255, .6), 2px -2px 5px rgb(255, 255, 255, .6), -2px -2px 5px rgb(255, 255, 255, .6);
+    transition: .3s;
 }
 
 .link-ul-menu {
     padding: 10px 0;
     background: transparent;
     color: rgba(255, 255, 255, .55);
-    transition: .3s;
-}
-
-.link-ul-menu:hover {
-    color: rgba(255, 255, 255, .75);
     transition: .3s;
 }
 
@@ -79,11 +80,32 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .ul-menu li {
     list-style: none;
+}
+
+.subline-link {
+    background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 0, 0));
+    background-repeat: no-repeat;
+    width: 75%;
+    background-size: 0% 100%;
+    margin-left: 17px;
+    margin-top: 3px;
+    height: 1px;
+    transition: .3s;
+}
+
+.ul-menu li:hover>.subline-link {
+    list-style: none;
+    background-size: 100% 100%;
+    transition: .3s;
+}
+
+.link-ul-menu:last-child .subline-link {
+    background: transparent;
 }
 
 .ul-menu ul li:last-child a {

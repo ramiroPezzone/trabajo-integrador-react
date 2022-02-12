@@ -7,7 +7,6 @@ import MovieDetails from './pages/js/MovieDetails';
 import ComingSoon from './pages/js/ComingSoon';
 import NoPageFound from './components/NoPageFound';
 import Favs from './pages/js/Favs';
-// import { Fav } from './components/Fav';
 
 function App() {
   return (
@@ -35,7 +34,7 @@ function App() {
         <Switch>
 
           <Route exact path='/' component={MovieList} />
-          <Route path='/details/:id' component={MovieDetails} />
+          <Route path='/details/:id' component={MovieDetails}/>
           <Route path='/favs' component={Favs} />
           <Route path='/coming-soon' component={ComingSoon} />
           <Route path='*'>

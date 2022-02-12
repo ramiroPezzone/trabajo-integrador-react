@@ -47,6 +47,14 @@ const ComingSoom = () => {
     }
     // 
 
+    const inputChanges = (e) => {
+        let input = e.target.value
+        setPageSelected(input)
+        input > 500 && setPageSelected(500)
+        input < 1 && setPageSelected(1)
+        input > pages && setPageSelected(pages)
+    }
+
     if (comingSoon.length === 0) {
         return <Loading />
     }
@@ -72,7 +80,14 @@ const ComingSoom = () => {
                             </span>
                         </div>
                         <div>
-                            Página {pageSelected} de {pages}
+                            Página
+                            <input
+                                type='number'
+                                value={pageSelected}
+                                onChange={(e) => inputChanges(e)}
+                                className={stylesPageSelector.input}
+                            />
+                            de {pages}
                         </div>
                         <div>
                             <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.nextArrow}`}>
@@ -102,6 +117,35 @@ const ComingSoom = () => {
                     </div>
                 ))}
             </Container>
+            {/* Contenedor de selector de páginas */}
+            <div className={stylesPageSelector.pagesControlPanel}>
+                <div className={stylesPageSelector.contenedorGralControlPanel}>
+
+                    <p className={stylesPageSelector.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
+                    <div className={stylesPageSelector.flexContainerControlPanel}>
+                        <div>
+                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.prevArrow}`}>
+                                <button disabled={min} onClick={prevPage}>Anterior</button>
+                            </span>
+                        </div>
+                        <div>
+                            Página
+                            <input
+                                type='number'
+                                value={pageSelected}
+                                onChange={(e) => inputChanges(e)}
+                                className={stylesPageSelector.input}
+                            />
+                            de {pages}
+                        </div>
+                        <div>
+                            <span className={`${stylesPageSelector.pagesArrows} ${stylesPageSelector.nextArrow}`}>
+                                <button disabled={max} onClick={nextPage}>Siguiente</button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/*  */}
         </Fragment>
     )
 };

@@ -37,7 +37,7 @@ const Favs = () => {
         </div>
       </div>
       {/*  */}
-
+    
       <Container>
         {movies.map((movie) => (
           <div className={styles.cardMovie} key={movie.id}>
