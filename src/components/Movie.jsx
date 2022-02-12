@@ -31,14 +31,13 @@ export const Movie = (props) => {
     } else {
       let favToAdd = [props.link];
       setFavs([...favs, favToAdd]);
-
       let favInfo = { id: props.link, name: props.title, sinopsis: props.overview, poster: props.poster_path }
-
       localStorage.setItem(props.link, JSON.stringify(favInfo));
-
       setIsFav(true);
+      console.log(favInfo);
     }
   };
+
 
   return (
     <div className={styles.containerMovie}>

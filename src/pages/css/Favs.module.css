@@ -1,0 +1,145 @@
+.containerMovie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 90%;
+    margin: 0 auto;
+    color: rgb(33, 37, 41);
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+.containerPosterMovie {
+    width: 100%;
+}
+
+.cardMovie {
+    width: 85%;
+}
+
+.posterMovie {
+    background-image: url(/src/assets/img/sinImagen.png);
+    box-sizing: border-box;
+    border: 3px solid rgb(238, 238, 238);
+    margin: 0 auto;
+    width: 100%;
+    height: 400px;
+    border-radius: 5px 5px 0 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.cardMatosMovie {
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.cardDatosMovie h5 {
+    font-size: 200px;
+    font-weight: 500;
+}
+
+.movieTitle {
+    padding-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title,
+.sinapsis {
+    padding: 0 10px;
+}
+
+.movieSinapsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+.comingSoon {
+    color: #FFF;
+    font-size: calc(.8rem + 2vw);
+    text-shadow: 2px 2px 5px rgb(255, 72, 0), -2px 2px 5px rgb(255, 72, 0), 2px -2px 5px rgb(255, 72, 0), -2px -2px 5px rgb(255, 72, 0);
+}
+
+.headerPagesControlPanel,
+.headerNovedades {
+    width: 100%;
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.headSearchParams {
+    font-size: 1.6rem;
+}
+
+.containerFavStarMovie {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
+}
+
+.noResultsText {
+    color: rgb(255, 0, 0);
+}
+
+.pagesControlPanel {
+    width: 100%;
+    margin-top: 10px;
+}
+.contenedorGralControlPanel {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 550px;
+    text-align: center;
+    background-color: #212529;
+    border: 3px outset #0dcaf0;
+    border-radius: 10px;
+    color: #fff;
+}
+.resultadosTotal {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 10px;
+}
+
+@media (min-width: 460px) {
+    .cardMovie {
+        width: 40%;
+    }
+
+    .posterMovie {
+        height: 300px;
+    }
+
+}
+
+@media (min-width: 806px) {
+    .cardMovie {
+        width: 30%;
+    }
+
+    .posterMovie {
+        height: 350px;
+    }
+}
+
+@media (min-width: 991px) {
+    .cardMovie {
+        width: 20%;
+    }
+}
