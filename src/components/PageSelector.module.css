@@ -6,6 +6,7 @@
 .contenedorGralControlPanel {
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 20px;
     max-width: 550px;
     text-align: center;
     background-color: #212529;

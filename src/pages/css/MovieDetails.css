@@ -83,13 +83,12 @@ h5 {
     .container-movie-details {
         flex-direction: row;
         align-items: flex-start;
-        /* max-width: 20px; */
         margin-top: 23px;
         gap: 20px;
     }
 
     .poster-movie-details {
-        width: 135%;
+        width: 35%;
         margin-top: 0px;
         padding: 4px;
         border-radius: 4px;
