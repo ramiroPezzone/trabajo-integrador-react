@@ -4,7 +4,9 @@ import { BackButton } from "../../components/BackButton";
 import FavStarSetter from "../../components/FavStarSetter";
 import { Loading } from "../../components/Loading";
 import { RangeStar } from "../../components/RangeStar";
-import '../css/MovieDetails.css'
+import '../css/MovieDetails.css';
+import styles from "../../components/Movie.module.css";
+
 
 
 const MovieDetails = () => {
@@ -25,12 +27,25 @@ const MovieDetails = () => {
             .catch(error => { console.log(error) })
     }, [endPoint]);
 
+    // Comiendo del renderizado
     if (movie.length === 0) {
         return <Loading />
     }
 
+    // Para mostrar el año de la movie
     let dateRelease = movie.release_date
     let yearRelease = dateRelease.slice(0, 4)
+
+    // Para cuando no hay imagen de movie
+    let posterPath = movie.poster_path
+    let poster = ''
+    !posterPath
+        ? (poster = '')
+        : poster = `url(http://image.tmdb.org/t/p/w500${posterPath})`
+
+
+    console.log(posterPath);
+    console.log(poster);
 
     return (
         <Fragment>
@@ -43,7 +58,17 @@ const MovieDetails = () => {
                             id={movie.id}
                         />
                     </div>
-                    <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
+                    <div className={styles.containerPosterMovie}>
+                        <div
+                            className={styles.posterMovie}
+                            style={{
+                                backgroundImage: poster,
+                                backgroundSize: "contain",
+                                backgroundRepeat: "no-repeat",
+                                backgroundPosition: "50% 50%",
+                            }}
+                        />
+                    </div>
                 </div>
                 <div className='card-datos-movie-details'>
                     <h2 className='movie-title'>{movie.title}</h2>
