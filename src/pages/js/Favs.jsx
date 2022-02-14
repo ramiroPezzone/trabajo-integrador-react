@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Container } from '../../components/js/Container';
 import { Movie } from '../../components/js/Movie';
+import TotalResultadosFavs from '../../components/js/TotalResultadosFavs';
 import WithoutFavs from '../../components/js/WithoutFavs';
 import styles from "../css/Favs.module.css";
 
@@ -30,14 +31,10 @@ const Favs = () => {
       </div>
       {/*  */}
 
-      {/* Contenedor de selector de páginas */}
-      <div className={styles.pagesControlPanel}>
-        <div className={styles.contenedorGralControlPanel}>
-          <p className={styles.resultadosTotal}>Total de títulos: {totalDeResultados}</p>
-        </div>
-      </div>
-      {/*  */}
-    
+      <TotalResultadosFavs
+        pages={totalDeResultados}
+      />
+
       <Container>
         {movies.map((movie) => (
           <div className={styles.cardMovie} key={movie.id}>

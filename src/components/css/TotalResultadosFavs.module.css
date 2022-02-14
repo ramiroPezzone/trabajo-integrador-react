@@ -1,0 +1,21 @@
+.pagesControlPanel {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contenedorGralControlPanel {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 550px;
+    text-align: center;
+    background-color: #212529;
+    border: 4px outset #0dcaf0;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.resultadosTotal {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 10px;
+}

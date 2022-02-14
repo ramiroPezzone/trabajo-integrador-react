@@ -99,6 +99,11 @@ const MovieList = () => {
         input > pages && setPageSelected(pages)
     }
 
+    // Quitar foco
+    const removeBlur = (e) => {
+        e.preventDefault(e)
+        e.target[0].blur()
+    }
 
     // Comienzo del renderizado del sitio
     if (!consultaFetch && movies.length === 0) {
@@ -165,12 +170,16 @@ const MovieList = () => {
                         </div>
                         <div>
                             Página
-                            <input
-                                type='number'
-                                value={pageSelected}
-                                onChange={(e) => inputChanges(e)}
-                                className={stylesPageSelector.input}
-                            />
+                            <form
+                                className={stylesPageSelector.form}
+                                onSubmit={(e) => removeBlur(e)}>
+                                <input
+                                    type='number'
+                                    value={pageSelected}
+                                    onChange={(e) => inputChanges(e)}
+                                    className={stylesPageSelector.input}
+                                />
+                            </form>
                             de {pages}
                         </div>
                         <div>
@@ -223,12 +232,16 @@ const MovieList = () => {
                         </div>
                         <div>
                             Página
-                            <input
-                                type='number'
-                                value={pageSelected}
-                                onChange={(e) => inputChanges(e)}
-                                className={stylesPageSelector.input}
-                            />
+                            <form
+                                className={stylesPageSelector.form}
+                                onSubmit={(e) => removeBlur(e)}>
+                                <input
+                                    type='number'
+                                    value={pageSelected}
+                                    onChange={(e) => inputChanges(e)}
+                                    className={stylesPageSelector.input}
+                                />
+                            </form>
                             de {pages}
                         </div>
                         <div>

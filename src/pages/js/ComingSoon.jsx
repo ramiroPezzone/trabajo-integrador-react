@@ -47,6 +47,7 @@ const ComingSoom = () => {
     }
     // 
 
+    // manejador de cambios del input pages
     const inputChanges = (e) => {
         let input = e.target.value
         setPageSelected(input)
@@ -54,6 +55,13 @@ const ComingSoom = () => {
         input < 1 && setPageSelected(1)
         input > pages && setPageSelected(pages)
     }
+
+    // Quitar foco del input page
+    const removeBlur = (e) => {
+        e.preventDefault(e)
+        e.target[0].blur()
+    }
+
 
     if (comingSoon.length === 0) {
         return <Loading />
@@ -81,12 +89,16 @@ const ComingSoom = () => {
                         </div>
                         <div>
                             Página
-                            <input
-                                type='number'
-                                value={pageSelected}
-                                onChange={(e) => inputChanges(e)}
-                                className={stylesPageSelector.input}
-                            />
+                            <form
+                                className={stylesPageSelector.form}
+                                onSubmit={(e) => removeBlur(e)}>
+                                <input
+                                    type='number'
+                                    value={pageSelected}
+                                    onChange={(e) => inputChanges(e)}
+                                    className={stylesPageSelector.input}
+                                />
+                            </form>
                             de {pages}
                         </div>
                         <div>
@@ -130,12 +142,16 @@ const ComingSoom = () => {
                         </div>
                         <div>
                             Página
-                            <input
-                                type='number'
-                                value={pageSelected}
-                                onChange={(e) => inputChanges(e)}
-                                className={stylesPageSelector.input}
-                            />
+                            <form
+                                className={stylesPageSelector.form}
+                                onSubmit={(e) => removeBlur(e)}>
+                                <input
+                                    type='number'
+                                    value={pageSelected}
+                                    onChange={(e) => inputChanges(e)}
+                                    className={stylesPageSelector.input}
+                                />
+                            </form>
                             de {pages}
                         </div>
                         <div>
