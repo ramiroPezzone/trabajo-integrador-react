@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NoPageFound.module.css'
+import styles from '../css/NoPageFound.module.css'
 
 const NoPageFound = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './WithoutFavs.module.css'
+import styles from '../css/WithoutFavs.module.css'
 
 const WithoutFavs = () => {
   return (

@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Movie } from "../../components/Movie";
-import { Loading } from "../../components/Loading";
-import { Container } from "../../components/Container";
-import styles from "../../components/Movie.module.css";
-import stylesPageSelector from "../../components/PageSelector.module.css";
+import { Movie } from "../../components/js/Movie";
+import { Loading } from "../../components/js/Loading";
+import { Container } from "../../components/js/Container";
+import styles from "../../components/css/Movie.module.css";
+import stylesPageSelector from "../../components/css/PageSelector.module.css";
 import { useLocation } from "react-router-dom";
-import { NoResults } from "../../components/NoResults";
+import { NoResults } from "../../components/js/NoResults";
 
 const useQuery = () => {
     return new URLSearchParams(useLocation().search);

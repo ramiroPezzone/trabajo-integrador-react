@@ -1,5 +1,5 @@
 import React from 'react';
-import './RangeStar.css'
+import '../css/RangeStar.css'
 
 export const RangeStar = (props) => {
     return (

@@ -1,13 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BackButton } from "../../components/BackButton";
-import FavStarSetter from "../../components/FavStarSetter";
-import { Loading } from "../../components/Loading";
-import { RangeStar } from "../../components/RangeStar";
+import { BackButton } from "../../components/js/BackButton";
+import FavStarSetter from "../../components/js/FavStarSetter";
+import { Loading } from "../../components/js/Loading";
+import { RangeStar } from "../../components/js/RangeStar";
 import '../css/MovieDetails.css';
-import styles from "../../components/Movie.module.css";
-
-
+import styles from "../../components/css/Movie.module.css";
 
 const MovieDetails = () => {
 
@@ -43,10 +41,6 @@ const MovieDetails = () => {
         ? (poster = '')
         : poster = `url(http://image.tmdb.org/t/p/w500${posterPath})`
 
-
-    console.log(posterPath);
-    console.log(poster);
-
     return (
         <Fragment>
 
@@ -56,6 +50,9 @@ const MovieDetails = () => {
                     <div className='containerFavStarDetails' >
                         <FavStarSetter
                             id={movie.id}
+                            name={movie.title}
+                            overview={movie.overview}
+                            poster_path={movie.poster_path}
                         />
                     </div>
                     <div className={styles.containerPosterMovie}>

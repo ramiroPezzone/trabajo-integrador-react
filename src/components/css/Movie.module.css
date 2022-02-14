@@ -103,10 +103,6 @@
   .cardMovie {
     width: 40%;
   }
-
-  .posterMovie {
-    height: 300px;
-  }
 }
 
 @media (min-width: 806px) {

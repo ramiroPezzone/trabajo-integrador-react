@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import styles from './NoResults.module.css'
+import styles from '../css/NoResults.module.css'
 
 export const NoResults = () => {
     return (

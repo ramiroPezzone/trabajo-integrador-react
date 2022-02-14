@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { Container } from '../../components/Container';
-import { Movie } from '../../components/Movie';
-import WithoutFavs from '../../components/WithoutFavs';
+import { Container } from '../../components/js/Container';
+import { Movie } from '../../components/js/Movie';
+import WithoutFavs from '../../components/js/WithoutFavs';
 import styles from "../css/Favs.module.css";
 
 const Favs = () => {

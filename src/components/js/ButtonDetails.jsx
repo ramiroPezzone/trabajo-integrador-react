@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import './ButtonDetails.css'
+import '../css/ButtonDetails.css'
 
 export const ButtonDetails = (props) => {
     return (

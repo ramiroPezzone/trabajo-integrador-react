@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import './Loading.css'
+import '../css/Loading.css'
 
 export const Loading = () => {
     return (

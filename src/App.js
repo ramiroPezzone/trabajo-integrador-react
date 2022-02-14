@@ -1,11 +1,11 @@
 import { Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Footer from './components/Footer';
+import Footer from './components/js/Footer';
 import MovieList from './pages/js/MovieList';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/js/Navbar';
 import MovieDetails from './pages/js/MovieDetails';
 import ComingSoon from './pages/js/ComingSoon';
-import NoPageFound from './components/NoPageFound';
+import NoPageFound from './components/js/NoPageFound';
 import Favs from './pages/js/Favs';
 
 function App() {
