@@ -41,7 +41,7 @@ const MovieList = () => {
                     data.total_pages > 500
                         ? setPages(500)
                         : setPages(data.total_pages)
-
+                    console.log(data);
                     data.total_results > 10000
                         ? setTotalDeResultados(10000)
                         : setTotalDeResultados(data.total_results)
@@ -93,10 +93,11 @@ const MovieList = () => {
     };
     const inputChanges = (e) => {
         let input = e.target.value
-        setPageSelected(input)
-        input > 500 && setPageSelected(500)
-        input < 1 && setPageSelected(1)
-        input > pages && setPageSelected(pages)
+        let inputToNumber = parseInt(input, 10)
+        setPageSelected(inputToNumber)
+        inputToNumber > 500 && setPageSelected(500)
+        inputToNumber < 1 && setPageSelected(1)
+        inputToNumber > pages && setPageSelected(pages)
     }
 
     // Quitar foco

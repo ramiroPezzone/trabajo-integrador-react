@@ -50,10 +50,11 @@ const ComingSoom = () => {
     // manejador de cambios del input pages
     const inputChanges = (e) => {
         let input = e.target.value
-        setPageSelected(input)
-        input > 500 && setPageSelected(500)
-        input < 1 && setPageSelected(1)
-        input > pages && setPageSelected(pages)
+        let inputToNumber = parseInt(input, 10)
+        setPageSelected(inputToNumber)
+        inputToNumber > 500 && setPageSelected(500)
+        inputToNumber < 1 && setPageSelected(1)
+        inputToNumber > pages && setPageSelected(pages)
     }
 
     // Quitar foco del input page

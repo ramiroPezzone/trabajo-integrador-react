@@ -1,9 +1,6 @@
 import React from "react";
 import { ButtonDetails } from "./ButtonDetails";
 import styles from "../css/Movie.module.css";
-
-
-
 import FavStarSetter from "./FavStarSetter";
 
 export const Movie = (props) => {
