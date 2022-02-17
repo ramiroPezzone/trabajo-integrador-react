@@ -36,6 +36,11 @@
 button {
     border: 2px outset #0dcaf0;
 }
+button:active {
+    filter: drop-shadow(2px 2px 3px #0dcaf0) drop-shadow(-2px 2px 3px #0dcaf0) drop-shadow(2px -2px 3px #0dcaf0) drop-shadow(-2px -2px 3px #0dcaf0);
+    transition: .01s;
+
+}
 
 button:disabled {
     border: 2px inset rgb(194, 181, 181);
