@@ -19,6 +19,7 @@ export const Navbar = (props) => {
 
   const search = (e) => {
     e.preventDefault()
+    console.log(e.target);
     history.push("/?s=" + searchParams)
     !cambiarClase && setCambiarClase(true)
     e.target[0].blur()
